@@ -12,6 +12,9 @@ concurrency:
 
 jobs:
   toggle_dist_repo_visibility:
+    # This workflow manages SukkaLab infrastructure and requires upstream-only
+    # secrets, which are intentionally unavailable to forks.
+    if: github.repository == 'SukkaW/Surge'
     name: Toggle Dist Repo Visibility
     runs-on: ubuntu-slim
     steps:
