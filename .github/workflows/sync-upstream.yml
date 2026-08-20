@@ -1,0 +1,44 @@
+name: Sync upstream SukkaW/Surge
+
+on:
+  schedule:
+    # Every day at 03:17 UTC (11:17 Asia/Shanghai).
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-upstream-master
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out fork
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Merge upstream master
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/SukkaW/Surge.git
+          git fetch --prune upstream master
+
+          if git merge-base --is-ancestor upstream/master HEAD; then
+            echo "Fork already contains the latest upstream commit."
+            exit 0
+          fi
+
+          git merge --no-edit upstream/master
+          git push origin master
+
