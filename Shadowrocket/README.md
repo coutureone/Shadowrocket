@@ -5,7 +5,7 @@
 ## 导入地址
 
 ```text
-https://raw.githubusercontent.com/coutureone/Surge/master/Shadowrocket/Shadowrocket-Universal-Split-DNS.conf
+https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Shadowrocket-Universal-Split-DNS.conf
 ```
 
 ## 使用方法
