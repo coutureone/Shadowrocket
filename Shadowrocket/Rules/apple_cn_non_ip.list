@@ -1,0 +1,18 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Converted for Shadowrocket from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/apple_cn.conf
+# Source Last Updated: 2026-08-05T12:33:04.400Z
+# Source Content Hash: X8kc8kYRsrmysFRnzFpY5Aw2PsmE-xu8_9PdEFl0RFk$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 9
+DOMAIN-SUFFIX,apple.com.cn
+DOMAIN-SUFFIX,cn.apple.com
+DOMAIN-SUFFIX,icloud.com.cn
+DOMAIN-SUFFIX,cn.ls.apple.com
+DOMAIN,api.smoot.apple.cn
+DOMAIN-SUFFIX,cn-ssl.ls.apple.com
+DOMAIN,gs-loc-cn.apple.com
+DOMAIN-SUFFIX,gspe19-cn-ssl.ls.apple.com
+DOMAIN,appleintelligencefeedback.care.apple.com

@@ -1,0 +1,14 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Converted for Shadowrocket from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/apple_intelligence.conf
+# Source Last Updated: 2026-08-05T12:33:04.404Z
+# Source Content Hash: mM7ABwLpXn1--ksvD1oM7ChSbu1LyTRYRKRZhT-up34$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 5
+DOMAIN,cp4.cloudflare.com
+DOMAIN,apple-relay.apple.com
+DOMAIN,gspe1-ssl.ls.apple.com
+DOMAIN,apple-relay.cloudflare.com
+DOMAIN,apple-relay.fastly-edge.com

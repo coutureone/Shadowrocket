@@ -1,0 +1,11 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Converted for Shadowrocket from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/ip/domestic.conf
+# Source Last Updated: 2026-08-05T12:33:04.393Z
+# Source Content Hash: MtVGNUmHRxFWknlTrfbeedjKU1N8e17g1u26PWcFVAU$
+# License: AGPL-3.0
+# Conversion Mode: ip
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 2
+IP-CIDR,140.205.1.0/24,no-resolve
+IP-CIDR,162.14.0.0/18,no-resolve

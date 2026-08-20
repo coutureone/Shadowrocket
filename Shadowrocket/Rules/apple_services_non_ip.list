@@ -1,0 +1,25 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Converted for Shadowrocket from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/apple_services.conf
+# Source Last Updated: 2026-08-05T12:33:04.405Z
+# Source Content Hash: D1NZxJ0P8otGR-pmWun3-MR6MHrTyyNdXdnytT_bmcg$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: IP-CIDR=1, PROCESS-NAME=8
+# Rule Count: 16
+DOMAIN-SUFFIX,me.com
+DOMAIN-SUFFIX,apple.co
+DOMAIN-SUFFIX,apple.com
+DOMAIN-SUFFIX,appsto.re
+DOMAIN-SUFFIX,apple.news
+DOMAIN-SUFFIX,icloud.com
+DOMAIN-SUFFIX,itunes.com
+DOMAIN-SUFFIX,aaplimg.com
+DOMAIN-SUFFIX,appstore.com
+DOMAIN-SUFFIX,apple-dns.net
+DOMAIN-SUFFIX,cdn-apple.com
+DOMAIN-SUFFIX,apple-mapkit.com
+DOMAIN-SUFFIX,apple-cloudkit.com
+DOMAIN-SUFFIX,icloud-content.com
+DOMAIN-SUFFIX,organicfruitapps.com
+DOMAIN-SUFFIX,push-apple.com.akadns.net

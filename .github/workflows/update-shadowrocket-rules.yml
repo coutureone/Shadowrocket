@@ -1,9 +1,9 @@
-name: Sync upstream SukkaW/Surge
+name: Update Shadowrocket rules
 
 on:
   schedule:
-    # Every day at 03:17 UTC (11:17 Asia/Shanghai).
-    - cron: '17 3 * * *'
+    # Run after the daily upstream sync. Shared concurrency prevents overlap.
+    - cron: '47 3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -14,9 +14,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  sync:
+  update:
+    if: github.repository == 'coutureone/Surge'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Check out fork
@@ -25,19 +26,21 @@ jobs:
           ref: master
           fetch-depth: 0
 
-      - name: Merge upstream master
+      - name: Convert Sukka rules for Shadowrocket
+        run: node Shadowrocket/scripts/update-rules.mjs
+
+      - name: Commit updated rules
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git remote add upstream https://github.com/SukkaW/Surge.git
-          git fetch --prune upstream master
+          git add Shadowrocket/Rules
 
-          if git merge-base --is-ancestor upstream/master HEAD; then
-            echo "Fork already contains the latest upstream commit."
+          if git diff --cached --quiet; then
+            echo "Shadowrocket rules are already up to date."
             exit 0
           fi
 
-          git merge --no-edit upstream/master
+          git commit -m "Update converted Shadowrocket rules"
           git push origin master

@@ -1,0 +1,20 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Converted for Shadowrocket from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/ip/lan.conf
+# Source Last Updated: 2026-08-05T12:33:04.394Z
+# Source Content Hash: AcyY1IsPOA4BBFgKlSC14TLEln-zD7bAz8N-cXfvVlg$
+# License: AGPL-3.0
+# Conversion Mode: ip
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 11
+IP-CIDR,0.0.0.0/8
+IP-CIDR,10.0.0.0/8
+IP-CIDR,100.64.0.0/10
+IP-CIDR,127.0.0.0/8
+IP-CIDR,169.254.0.0/16
+IP-CIDR,172.16.0.0/12
+IP-CIDR,192.168.0.0/16
+IP-CIDR,224.0.0.0/4
+IP-CIDR6,::1/128
+IP-CIDR6,fc00::/7
+IP-CIDR6,fe80::/10
