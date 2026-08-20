@@ -31,6 +31,7 @@ const SOURCES = [
   // Domain and non-IP rules supported by Shadowrocket on iOS.
   ['List/non_ip/ai.conf', 'ai_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/apple_intelligence.conf', 'apple_intelligence_non_ip.list', 'domain', 'AGPL-3.0'],
+  ['List/non_ip/cdn.conf', 'cdn_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/stream.conf', 'stream_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/telegram.conf', 'telegram_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/apple_cn.conf', 'apple_cn_non_ip.list', 'domain', 'AGPL-3.0'],
@@ -38,6 +39,7 @@ const SOURCES = [
   ['List/non_ip/microsoft_cdn.conf', 'microsoft_cdn_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/microsoft.conf', 'microsoft_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/neteasemusic.conf', 'neteasemusic_non_ip.list', 'domain', 'AGPL-3.0'],
+  ['List/non_ip/download.conf', 'download_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/lan.conf', 'lan_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/domestic.conf', 'domestic_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/direct.conf', 'direct_non_ip.list', 'domain', 'AGPL-3.0'],
@@ -47,6 +49,7 @@ const SOURCES = [
   ['List/ip/ai.conf', 'ai_ip.list', 'ip', 'AGPL-3.0'],
   ['List/ip/stream.conf', 'stream_ip.list', 'ip', 'AGPL-3.0'],
   ['List/ip/telegram.conf', 'telegram_ip.list', 'ip', 'AGPL-3.0'],
+  ['List/ip/neteasemusic.conf', 'neteasemusic_ip.list', 'ip', 'AGPL-3.0'],
   ['List/ip/lan.conf', 'lan_ip.list', 'ip', 'AGPL-3.0'],
   ['List/ip/domestic.conf', 'domestic_ip.list', 'ip', 'AGPL-3.0'],
   ['List/ip/china_ip.conf', 'china_ip.list', 'ip', 'CC-BY-SA-2.0'],

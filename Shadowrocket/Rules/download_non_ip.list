@@ -1,0 +1,18 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Converted for Shadowrocket from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/download.conf
+# Source Last Updated: 2026-08-05T12:33:04.408Z
+# Source Content Hash: Yl6ZX6RG9FLOB_BLmHsFfEIamzPZ6LaflomfWznqQkY$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: URL-REGEX=1
+# Rule Count: 9
+DOMAIN-WILDCARD,download*.mediafire.com
+DOMAIN-WILDCARD,ftp.??.debian.org
+DOMAIN-WILDCARD,ftp.??.freebsd.org
+DOMAIN-WILDCARD,s3.*.backblazeb2.com
+DOMAIN-WILDCARD,*.s3.*.backblazeb2.com
+DOMAIN-WILDCARD,cdn-*.comaps.app
+DOMAIN-WILDCARD,cdn-*.comaps.tech
+DOMAIN-WILDCARD,cdn-*.organicmaps.app
+DOMAIN-WILDCARD,dl-*.mypikpak.com
