@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/cdn.conf
-# Source Last Updated: 2026-08-21T08:17:07.730Z
-# Source Content Hash: vPt48rBk3C59Lt3QBDMf4FOhk1MyTVblsGr5YoXOlNM$
+# Source Last Updated: 2026-08-22T19:56:09.234Z
+# Source Content Hash: YUjobn8edA9hIFPvsn2uR7Bz8PorZFdNnYhPOmjpOxc$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 4626
+# Rule Count: 4631
 0x0.st
 eep.io
 .esm.sh
@@ -912,6 +912,7 @@ embed.ted.com
 .ensighten.com
 eu.cdnbye.com
 .fastlycdn.com
+.fe.indazn.com
 .feedercdn.com
 .fiverrcdn.com
 .flagpedia.net
@@ -2399,6 +2400,7 @@ static.codepen.io
 static.cracked.ax
 static.cracked.sh
 static.crypto.com
+static.dazndn.com
 .static.flickr.com
 static.frame.work
 static.garmin.com
@@ -4243,6 +4245,7 @@ frontend-cdn.perplexity.ai
 .hubspotusercontent-eu1.net
 .hubspotusercontent-na1.net
 idportal-cdn-prd.unity.com
+image.discovery.indazn.com
 images.applegamingwiki.com
 images.ecomm.microsoft.com
 images.financemagnates.com
@@ -4533,6 +4536,7 @@ b5x-sentry.1passwordservices.com
 cmtycdn.powerpages.microsoft.com
 .commondatastorage.googleapis.com
 .crash-reports.browser.yandex.net
+dazn-content-proxy.sd.indazn.com
 detectportal.brave-http-only.com
 edge-mobile-static.azureedge.net
 nbcnewsdigital-static.nbcuni.com
@@ -4584,6 +4588,7 @@ static-assets-prod.unrealengine.com
 stubdownloader.services.mozilla.com
 cf-images.us-east-1.prod.boltdns.net
 content-prod-live.cert.starbucks.com
+contentful-asset-proxy.sd.indazn.com
 .crashlyticsreports-pa.googleapis.com
 crossborder-integration.global-e.com
 firebaseinstallations.googleapis.com
