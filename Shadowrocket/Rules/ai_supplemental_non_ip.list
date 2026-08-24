@@ -1,0 +1,43 @@
+# Shadowrocket AI supplemental rules
+# Maintained by coutureone/Shadowrocket
+# Updated: 2026-08-24
+#
+# Purpose: keep authentication, session, API, static assets and region checks
+# for Gemini / ChatGPT on the same AI policy. These entries supplement Sukka's
+# AI rules and intentionally avoid routing the whole google.com domain to AI.
+
+# Gemini web, API and authentication dependencies
+DOMAIN,accounts.google.com
+DOMAIN,oauth2.googleapis.com
+DOMAIN,people-pa.googleapis.com
+DOMAIN,waa-pa.clients6.google.com
+DOMAIN,assistant-s3-pa.googleapis.com
+DOMAIN,optimizationguide-pa.googleapis.com
+DOMAIN-SUFFIX,apis.google.com
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+DOMAIN-KEYWORD,generativelanguage
+
+# ChatGPT web/app, authentication, challenges and realtime dependencies
+DOMAIN,browser-intake-datadoghq.com
+DOMAIN,chat.openai.com.cdn.cloudflare.net
+DOMAIN,openai-api.arkoselabs.com
+DOMAIN,static.cloudflareinsights.com
+DOMAIN-SUFFIX,api.statsig.com
+DOMAIN-SUFFIX,auth0.com
+DOMAIN-SUFFIX,chatgpt.livekit.cloud
+DOMAIN-SUFFIX,client-api.arkoselabs.com
+DOMAIN-SUFFIX,events.statsigapi.net
+DOMAIN-SUFFIX,featuregates.org
+DOMAIN-SUFFIX,host.livekit.cloud
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,launchdarkly.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net
+DOMAIN-SUFFIX,openaicom.imgix.net
+DOMAIN-SUFFIX,turn.livekit.cloud

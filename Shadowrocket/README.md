@@ -13,12 +13,11 @@ https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Sh
 1. 先在 Shadowrocket 首页导入并更新机场订阅。
 2. 进入“配置”，点击右上角 `+`，粘贴上面的 Raw 地址并下载。
 3. 选中下载的配置文件，将首页“全局路由”设为“配置”。
-4. 启动 Shadowrocket，在配置的 `Proxy` 策略组中选择：
-   - `Auto`：在所有真实节点中自动选择，出口国家可能变化；
-   - `HK`、`TW`、`JP`、`SG`、`US`：只在对应地区节点间切换；
-   - 具体节点：固定该节点，直到手动修改。
+4. 在 Shadowrocket 首页手动选择一个机场节点。所有需要代理的国外、AI、流媒体及 Telegram 流量都会使用当前节点；配置不会自动选择或切换节点。
 
-国内域名及中国大陆 IPv4/IPv6 默认直连，国外和未知流量默认通过 `Proxy`。AI、流媒体和 Telegram 提供独立策略组，默认继承 `Proxy`。
+国内域名及中国大陆 IPv4/IPv6 默认直连，国外和未知流量统一使用小火箭内置的 `PROXY`，也就是首页当前手选的机场节点。配置没有 `Auto` 和地区策略组，不会后台更换出口。
+
+AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.list` 补齐 Gemini 与 ChatGPT 的登录、鉴权、API、静态资源和实时通信依赖。AI 连接和国外 DoH 都使用当前 `PROXY` 节点，避免 DNS 与连接出口国家不一致。补充规则刻意不包含整个 `google.com`。
 
 ## DNS 设计
 
@@ -43,5 +42,9 @@ https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Sh
 `.github/workflows/update-shadowrocket-rules.yml` 每天北京时间 11:47 从 Sukka 官方 Ruleset Server 获取构建结果，通过 `Shadowrocket/scripts/update-rules.mjs` 转换后写入 `Shadowrocket/Rules/`。主配置只引用本仓库中的这些转换结果，不再依赖第三方 Shadowrocket 规则仓库。
 
 转换器保留 Shadowrocket 支持的域名、USER-AGENT、IPv4/IPv6 CIDR 和 ASN 规则，自动删除 Surge/iOS 不适用或需要 MITM 的 `PROCESS-NAME`、`URL-REGEX` 等内容。CDN、下载和网易云均同时覆盖其域名/non-IP/IP补充规则。广告、Map Local、全局 MITM 和其他 Surge 专属模块不会转换。
+
+## AI 地区问题检查
+
+更新配置后，在首页手动选择一条受 Gemini / ChatGPT 支持的节点（建议先测试美国），断开并重新连接，再完全退出并重新打开 App。最近请求中的 Gemini/ChatGPT 主域名、登录和 API 请求都应命中 `PROXY`。如果仍提示地区不支持，应更换另一条节点；节点名称是“美国”不代表 Google/OpenAI 对该出口 IP 的定位和风控结果一定是美国。
 
 自定义文件仅放在 `Shadowrocket/` 目录，正常情况下不会干扰上游更新。如果未来上游创建同名文件并产生合并冲突，工作流会失败并保留现状，不会强制覆盖仓库内容。
