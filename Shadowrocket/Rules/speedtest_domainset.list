@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-08-25T17:44:17.541Z
-# Source Content Hash: vIHkuzvv7ZLLRoAyNdJssei9_ibIUwZhQ72e0Q4Wmq8$
+# Source Last Updated: 2026-08-26T17:57:48.338Z
+# Source Content Hash: t_2z12YyjOdc56d5GEZxhnJrWAuYKzAYFo7_o3yeNsQ$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3351
+# Rule Count: 3352
 .fast.com
 fastme.ir
 .nperf.net
@@ -2111,6 +2111,7 @@ speedtest.megahertz.net.in
 speedtest.milanfiber.co.tz
 speedtest.msk.ertelecom.ru
 speedtest.multicablehn.com
+speedtest.mum.skynetmp.com
 speedtest.n4ubroadband.com
 speedtest.netlinkce.com.br
 speedtest.ngcbroadband.com

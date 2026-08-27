@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/apple_cdn.conf
-# Source Last Updated: 2026-08-05T12:33:04.735Z
-# Source Content Hash: 8nUMBKPuv5hpO7O7PCZGi-9iEo7dB8jneGtIkh4UvKs$
+# Source Last Updated: 2026-08-26T17:57:49.006Z
+# Source Content Hash: pUX5ClynVnEYl9Bkv3QcQDuTNLL3yukqR1X-QKxNNpg$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 158
+# Rule Count: 159
 .xp.apple.com
 .cds.apple.com
 .cl1.apple.com
@@ -122,6 +122,7 @@
 .store.apple.com.edgekey.net
 .swdist.apple.com.akadns.net
 .download.developer.apple.com
+.gspe11-2-cn-ssl.ls.apple.com
 .gspe19-2-cn-ssl.ls.apple.com
 .iosapps.itunes.g.aaplimg.com
 .osxapps.itunes.g.aaplimg.com
