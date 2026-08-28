@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/cdn.conf
-# Source Last Updated: 2026-08-22T19:56:09.234Z
-# Source Content Hash: YUjobn8edA9hIFPvsn2uR7Bz8PorZFdNnYhPOmjpOxc$
+# Source Last Updated: 2026-08-27T16:33:13.948Z
+# Source Content Hash: HwSo5D32zvs1ahMZjNv8CQ7fynxx9ZtXFE1e4ByDx-c$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 4631
+# Rule Count: 4632
 0x0.st
 eep.io
 .esm.sh
@@ -2362,6 +2362,7 @@ public.linear.app
 public.zoorix.com
 purehalo.logto.io
 r2.gear4music.com
+.reconvert-cdn.com
 .res.office365.com
 res2.weblium.site
 .rescript-lang.org
