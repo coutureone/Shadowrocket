@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-08-26T17:57:48.338Z
-# Source Content Hash: t_2z12YyjOdc56d5GEZxhnJrWAuYKzAYFo7_o3yeNsQ$
+# Source Last Updated: 2026-08-29T00:57:51.959Z
+# Source Content Hash: ynfhJUwqs4mXDcyUHj0s8bpoMLzdLN-UZMaVA0UY1BU$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3352
+# Rule Count: 3355
 .fast.com
 fastme.ir
 .nperf.net
@@ -1073,6 +1073,7 @@ ookla-mia.gigsouth.com
 ookla.gctelecom.com.br
 ookla.mia.teracast.net
 ookla.micrologicwv.com
+ookla.premierdc.com.tr
 .ookla.surfinternet.com
 ookla1.talkiefiber.com
 ookla1.the.net.1310.io
@@ -3078,6 +3079,8 @@ speedtest.skylink-data-center.nl
 speedtest.webfibertelecom.com.br
 speedtest.wifi-communication.com
 speedtest.winchesterwireless.com
+speedtest01.mel01.nexthop.net.au
+speedtest01.syd01.nexthop.net.au
 speedtest1.kablosuzonline.com.tr
 speedtest16.mustafasevinc.com.tr
 speedtest2.lightningfibre.net.uk
