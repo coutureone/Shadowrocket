@@ -1,8 +1,8 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/ip/china_ip_ipv6.conf
-# Source Last Updated: 2026-08-28T17:27:30.376Z
-# Source Content Hash: g7NnofWvMHfT02dQSat_GNKMjDsI4MtWAastKER31HA$
+# Source Last Updated: 2026-08-29T11:40:32.656Z
+# Source Content Hash: FlbPgL1Dbq-4iYXeJq47EVObooPtrDDhDfuNlFRqqbI$
 # License: CC-BY-SA-2.0
 # Conversion Mode: ip
 # Unsupported or inapplicable entries removed: none
@@ -942,6 +942,7 @@ IP-CIDR6,2402:70c0::/32
 IP-CIDR6,2402:7140::/32
 IP-CIDR6,2402:71c0::/32
 IP-CIDR6,2402:7240::/32
+IP-CIDR6,2402:72a0::/32
 IP-CIDR6,2402:72c0::/32
 IP-CIDR6,2402:7540::/32
 IP-CIDR6,2402:75c0::/32
@@ -1768,7 +1769,6 @@ IP-CIDR6,2405:84c0:8006::/48
 IP-CIDR6,2405:84c0:8008::/45
 IP-CIDR6,2405:84c0:8010::/48
 IP-CIDR6,2405:84c0:8019::/48
-IP-CIDR6,2405:84c0:801b::/48
 IP-CIDR6,2405:84c0:801c::/46
 IP-CIDR6,2405:84c0:8020::/47
 IP-CIDR6,2405:84c0:8036::/47

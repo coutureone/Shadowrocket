@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-08-29T00:57:51.959Z
-# Source Content Hash: ynfhJUwqs4mXDcyUHj0s8bpoMLzdLN-UZMaVA0UY1BU$
+# Source Last Updated: 2026-08-29T18:28:29.688Z
+# Source Content Hash: XmloBGe9jcEA0Cfsjp5FwfGoVMFRGBCnNL8B2dsmUg0$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3355
+# Rule Count: 3357
 .fast.com
 fastme.ir
 .nperf.net
@@ -772,6 +772,7 @@ spt-for1.edgeuno.com
 spt-jfk1.edgeuno.com
 spt-lax1.edgeuno.com
 spt-lon1.edgeuno.com
+spt-noc.umal-nds.com
 spt-sjo1.edgeuno.com
 srv-st03.arcolink.it
 srv-st04.arcolink.it
@@ -1792,6 +1793,7 @@ veloteste.mrjomar.com.br
 aragonnetspeedtest.com.br
 bassoon-sg-1.violin.co.th
 bursaspeedtest.pendns.net
+cns-speedtest.duckdns.org
 hiztesti-ist.codit.com.tr
 hl-speed.twmbroadband.com
 iskendurum.veganet.com.tr

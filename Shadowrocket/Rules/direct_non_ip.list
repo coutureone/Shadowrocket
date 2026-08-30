@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/non_ip/direct.conf
-# Source Last Updated: 2026-08-14T11:27:06.562Z
-# Source Content Hash: l2wStpjwYHdII8YiXiRGwUOpcgS2RedyffJ40t2ohzE$
+# Source Last Updated: 2026-08-29T18:37:13.404Z
+# Source Content Hash: cHGPw28cUlHeJPPagi8Xu_fFZ8zOSPij9yiiZy5La3M$
 # License: AGPL-3.0
 # Conversion Mode: domain
 # Unsupported or inapplicable entries removed: PROCESS-NAME=36
-# Rule Count: 182
+# Rule Count: 183
 DOMAIN-SUFFIX,lan
 DOMAIN-SUFFIX,m2m
 DOMAIN-SUFFIX,home
@@ -176,6 +176,7 @@ DOMAIN,public.localsend.org
 DOMAIN-SUFFIX,blackwell-synergy.com
 DOMAIN,injections.adguard.org
 DOMAIN-SUFFIX,lcdn-locator.apple.com
+DOMAIN,mirrorlist.cdn.skk.moe
 DOMAIN-SUFFIX,classix-unlimited.co.uk
 DOMAIN,instant.arubanetworks.com
 DOMAIN,setmeup.arubanetworks.com
