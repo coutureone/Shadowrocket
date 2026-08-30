@@ -39,5 +39,11 @@ jobs:
             exit 0
           fi
 
-          git merge --no-edit upstream/master
+          # Keep this fork's workflows unchanged. The automatic GITHUB_TOKEN
+          # can push repository content, but GitHub rejects pushes that modify
+          # workflow files without the separate workflows permission.
+          fork_head="$(git rev-parse HEAD)"
+          git merge --no-commit --no-ff upstream/master
+          git restore --source="$fork_head" --staged --worktree -- .github/workflows
+          git commit --no-edit
           git push origin master
