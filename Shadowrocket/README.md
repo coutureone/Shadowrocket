@@ -17,7 +17,7 @@ https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Sh
 
 国内域名及中国大陆 IPv4/IPv6 默认直连，国外和未知流量统一使用小火箭内置的 `PROXY`，也就是首页当前手选的机场节点。配置没有 `Auto` 和地区策略组，不会后台更换出口。
 
-AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.list` 补齐 Gemini 与 ChatGPT 的登录、鉴权、API、静态资源和实时通信依赖。AI 连接和国外 DoH 都使用当前 `PROXY` 节点，避免 DNS 与连接出口国家不一致。补充规则刻意不包含整个 `google.com`。
+AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.list` 补齐 Gemini 与 ChatGPT 的登录、鉴权、API、静态资源和实时通信依赖。AI 连接和国外 DoH 都使用当前 `PROXY` 节点，避免 DNS 与连接出口国家不一致。Gemini 所需的 Google 登录、`google.com`、`googleapis.com`、`gstatic.com` 和 `googleusercontent.com` 依赖已统一锁定到 `PROXY`；这会让 Google AI 会话的地区判断使用同一个出口。
 
 ## DNS 设计
 

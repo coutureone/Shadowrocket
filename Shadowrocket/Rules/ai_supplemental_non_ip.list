@@ -3,17 +3,24 @@
 # Updated: 2026-08-24
 #
 # Purpose: keep authentication, session, API, static assets and region checks
-# for Gemini / ChatGPT on the same AI policy. These entries supplement Sukka's
-# AI rules and intentionally avoid routing the whole google.com domain to AI.
+# for Gemini / ChatGPT on the same AI policy. Google AI session dependencies
+# are intentionally kept together so region checks use one proxy exit.
 
 # Gemini web, API and authentication dependencies
 DOMAIN,accounts.google.com
 DOMAIN,oauth2.googleapis.com
+DOMAIN,www.google.com
+DOMAIN,ogs.google.com
+DOMAIN,play.google.com
 DOMAIN,people-pa.googleapis.com
 DOMAIN,waa-pa.clients6.google.com
 DOMAIN,assistant-s3-pa.googleapis.com
 DOMAIN,optimizationguide-pa.googleapis.com
 DOMAIN-SUFFIX,apis.google.com
+DOMAIN-SUFFIX,google.com
+DOMAIN-SUFFIX,googleapis.com
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,googleusercontent.com
 DOMAIN-SUFFIX,gemini.google.com
 DOMAIN-SUFFIX,generativeai.google
 DOMAIN-SUFFIX,generativelanguage.googleapis.com
