@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/ip/china_ip.conf
-# Source Last Updated: 2026-08-31T21:53:40.096Z
-# Source Content Hash: A-XfOmUebNTal16cnhsLuySeTl2aEq55JF6-aUEpN4E$
+# Source Last Updated: 2026-09-02T07:23:33.934Z
+# Source Content Hash: fiBG6pvzMOVMSrfal7az1n1njswrfpwWRm9HrgcEZhY$
 # License: CC-BY-SA-2.0
 # Conversion Mode: ip
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3906
+# Rule Count: 3905
 IP-CIDR,1.1.8.0/24
 IP-CIDR,1.2.4.0/24
 IP-CIDR,1.8.1.0/24
@@ -696,7 +696,6 @@ IP-CIDR,101.64.0.0/13
 IP-CIDR,101.72.0.0/14
 IP-CIDR,101.76.0.0/15
 IP-CIDR,101.78.0.0/22
-IP-CIDR,101.79.220.0/24
 IP-CIDR,101.80.0.0/12
 IP-CIDR,101.96.10.0/23
 IP-CIDR,101.96.128.0/23
@@ -2861,7 +2860,6 @@ IP-CIDR,185.183.84.0/24
 IP-CIDR,185.194.148.0/24
 IP-CIDR,185.201.226.0/23
 IP-CIDR,188.131.128.0/17
-IP-CIDR,192.51.173.0/24
 IP-CIDR,192.140.160.0/19
 IP-CIDR,192.140.208.0/21
 IP-CIDR,192.144.128.0/17
@@ -3706,6 +3704,7 @@ IP-CIDR,220.154.16.0/22
 IP-CIDR,220.154.64.0/20
 IP-CIDR,220.154.80.0/22
 IP-CIDR,220.154.128.0/20
+IP-CIDR,220.154.144.0/24
 IP-CIDR,220.154.147.0/24
 IP-CIDR,220.160.0.0/12
 IP-CIDR,220.176.0.0/14
