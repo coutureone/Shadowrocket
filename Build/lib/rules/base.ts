@@ -11,7 +11,7 @@ import { appendArrayInPlace } from 'foxts/append-array-in-place';
 import { isMainThread } from 'node:worker_threads';
 import { resolveStrategyOutputPath, serializeStrategy, writeDataToStrategies } from './strategy-write-data';
 import type { OutputWorkerPayload, StrategyWriteData } from './strategy-write-data';
-import { getOutputWorkerFarm } from './output-worker-farm';
+import { getBuildWorkerFarm } from '../build-worker-farm';
 
 /**
  * Below this many dumped domain entries, formatting + hashing + writing inline is
@@ -189,19 +189,32 @@ export class FileOutput {
     return this;
   }
 
+  private addDomainsetLine(line: string) {
+    const otherPoundSign = line.lastIndexOf('#');
+
+    if (otherPoundSign > 0) {
+      line = line.slice(0, otherPoundSign).trimEnd();
+    }
+
+    if (line[0] === '.') {
+      this.addDomainSuffix(line);
+    } else {
+      this.domainTrie.add(line);
+    }
+  }
+
   private async addFromDomainsetPromise(source: MaybePromise<AsyncIterable<string> | Iterable<string> | string[]>) {
-    for await (let line of await source) {
-      const otherPoundSign = line.lastIndexOf('#');
-
-      if (otherPoundSign > 0) {
-        line = line.slice(0, otherPoundSign).trimEnd();
+    const resolved = await source;
+    // `for await` over a plain array still yields to the microtask queue once
+    // per element; the parsed remote lists are hundreds of thousands of lines
+    if (Array.isArray(resolved)) {
+      for (let i = 0, len = resolved.length; i < len; i++) {
+        this.addDomainsetLine(resolved[i]);
       }
-
-      if (line[0] === '.') {
-        this.addDomainSuffix(line);
-      } else {
-        this.domainTrie.add(line);
-      }
+      return;
+    }
+    for await (const line of resolved) {
+      this.addDomainsetLine(line);
     }
   }
 
@@ -493,8 +506,8 @@ export class FileOutput {
       // synchronously so no completion ever waits on a busy main thread.
       //
       // Only worth doing from the main thread -- tasks that already run entirely on
-      // a worker (build-microsoft-cdn, build-telegram-cidr, build-cdn-download-conf)
-      // are not contending with anything, and must not spawn a nested worker farm.
+      // a worker (build-microsoft-cdn, build-cdn-download-conf) are not contending
+      // with anything, and must not spawn a nested worker farm.
       if (isMainThread && domains.length >= OUTPUT_WORKER_THRESHOLD) {
         this.guardBeforeWritingToStrategies();
 
@@ -509,7 +522,7 @@ export class FileOutput {
 
         return childSpan.traceWorkerChild(
           'write via output worker',
-          rawSpan => getOutputWorkerFarm().writeOutput(rawSpan, payload)
+          rawSpan => getBuildWorkerFarm().writeOutput(rawSpan, payload)
         );
       }
 

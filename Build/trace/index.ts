@@ -6,6 +6,8 @@ import process from 'node:process';
 import { threadId } from 'node:worker_threads';
 import { mergeExternalDownloadStats, takeExternalDownloadStats } from '../lib/download-stats';
 import type { ExternalDownloadStatsSnapshot } from '../lib/download-stats';
+import { mergeWireStats, takeWireStats } from '../lib/download-wire-stats';
+import type { WireStatsSnapshot } from '../lib/download-wire-stats';
 import { SPAN_STATUS_END, SPAN_STATUS_START, SpanCategory } from './types';
 import type { RawSpan, TraceResult } from './types';
 import { adjustTraceTimestamps, printBuildReport } from './report';
@@ -49,8 +51,7 @@ export function makeSpan(rawSpan: RawSpan): Span {
     }
     traceResult.end = time ?? performance.now();
     if (rawSpan.eluStart) {
-      const elu = performance.eventLoopUtilization(rawSpan.eluStart);
-      traceResult.elu = { idle: elu.idle, active: elu.active };
+      traceResult.loopIdle = { atStart: rawSpan.eluStart.idle, atEnd: performance.eventLoopUtilization().idle };
     }
     rawSpan.status = SPAN_STATUS_END;
   };
@@ -66,22 +67,30 @@ export function makeSpan(rawSpan: RawSpan): Span {
       return span;
     },
     traceChild,
+    // Spans are stopped in `finally` so a throwing function is still measured
+    // (and the tree does not end up with an "(unfinished)" hole where it failed).
     traceSyncFn<T>(fn: (span: Span) => T) {
       traceResult.sync = true;
-      const res = fn(span);
-      span.stop();
-      return res;
+      try {
+        return fn(span);
+      } finally {
+        span.stop();
+      }
     },
     async traceAsyncFn<T>(fn: (span: Span) => T | Promise<T>): Promise<T> {
-      const res = await fn(span);
-      span.stop();
-      return res;
+      try {
+        return await fn(span);
+      } finally {
+        span.stop();
+      }
     },
     traceResult,
     async tracePromise<T>(promise: Promise<T>): Promise<T> {
-      const res = await promise;
-      span.stop();
-      return res;
+      try {
+        return await promise;
+      } finally {
+        span.stop();
+      }
     },
     traceChildSync: <T>(name: string, fn: (span: Span) => T, category?: SpanCategory): T => traceChild(name, category).traceSyncFn(fn),
     traceChildAsync: <T>(name: string, fn: (span: Span) => T | Promise<T>, category?: SpanCategory): Promise<T> => traceChild(name, category).traceAsyncFn(fn),
@@ -89,9 +98,10 @@ export function makeSpan(rawSpan: RawSpan): Span {
 
     async traceWorkerChild<T>(name: string, factory: (rawSpan: RawSpan) => Promise<WorkerJobResult<T>>): Promise<T> {
       const childSpan = traceChild(name, SpanCategory.Worker);
-      const { result, traceResult, workerTimeOrigin, externalDownloadStats } = await factory(childSpan.rawSpan);
+      const { result, traceResult, workerTimeOrigin, externalDownloadStats, wireStats } = await factory(childSpan.rawSpan);
       mergeWorkerTrace(childSpan, traceResult, workerTimeOrigin);
       mergeExternalDownloadStats(externalDownloadStats);
+      mergeWireStats(wireStats);
       childSpan.stop();
       return result;
     }
@@ -224,7 +234,8 @@ export interface WorkerJobResult<T> {
   result: T,
   traceResult: TraceResult,
   workerTimeOrigin: number,
-  externalDownloadStats: ExternalDownloadStatsSnapshot
+  externalDownloadStats: ExternalDownloadStatsSnapshot,
+  wireStats: WireStatsSnapshot
 }
 
 /**
@@ -249,6 +260,7 @@ export async function workerJob<T>(
     result,
     traceResult: span.traceResult,
     workerTimeOrigin: performance.timeOrigin,
-    externalDownloadStats: takeExternalDownloadStats()
+    externalDownloadStats: takeExternalDownloadStats(),
+    wireStats: takeWireStats()
   };
 }

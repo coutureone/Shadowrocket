@@ -25,6 +25,21 @@ const enum ParseType {
 
 export { type ParseType };
 
+/** Plain data: safe to hand across a worker thread boundary */
+export type ProcessFilterRulesResult = Record<
+  'whiteDomains'
+  | 'whiteDomainSuffixes'
+  | 'blackDomains'
+  | 'blackDomainSuffixes'
+  | 'blackIPs'
+  | 'blackWildcard'
+  | 'whiteKeyword'
+  | 'blackKeyword',
+  string[]
+> & {
+  filterRulesUrl: string
+};
+
 export function processFilterRulesWithPreload(
   filterRulesUrl: string,
   fallbackUrls?: string[] | null,
@@ -35,21 +50,7 @@ export function processFilterRulesWithPreload(
     true, false, true
   );
 
-  return (span: Span) => span.traceChildAsync<
-    Record<
-      'whiteDomains'
-      | 'whiteDomainSuffixes'
-      | 'blackDomains'
-      | 'blackDomainSuffixes'
-      | 'blackIPs'
-      | 'blackWildcard'
-      | 'whiteKeyword'
-      | 'blackKeyword',
-      string[]
-    > & {
-      filterRulesUrl: string
-    }
-  >(`process filter rules: ${filterRulesUrl}`, async (span) => {
+  return (span: Span) => span.traceChildAsync<ProcessFilterRulesResult>(`process filter rules: ${filterRulesUrl}`, async (span) => {
     const filterRules = await span.traceChildPromise('download', downloadPromise, SpanCategory.Network);
 
     const whiteDomains = new Set<string>();
@@ -200,62 +201,56 @@ const kwfilter = createKeywordFilter([
 ]);
 
 /**
- * The idea is that, TransformStream works kinda like a filter running on response. If we
- * can filter lines before Array.fromAsync, we can create a smaller array, this saves memory
- * and could improve performance.
+ * Drop filter lines that can never become a Surge/Clash rule (cosmetic, path
+ * rules, rules with browser-only modifiers) as early as possible, so the parser
+ * and the line array only ever see candidates. Returns the trimmed line, or null
+ * to drop it. Runs inline while the downloaded text is split into lines.
  */
-export class AdGuardFilterIgnoreUnsupportedLinesStream extends TransformStream<string, string> {
-  // private __buf = '';
-  constructor() {
-    super({
-      transform(line, controller) {
-        let firstCharCode = line.charCodeAt(0);
-        if (
-          // bail out path-like/cosmetic very early, even before trim
-          firstCharCode === 47 // /
-          || firstCharCode === 35 // #
-          // doesn't include
-          || !line.includes('.') // rule with out dot can not be a domain
-          || kwfilter(line) // filter out some symbols/modifiers
-        ) {
-          return;
-        }
-
-        line = line.trim();
-
-        if (line.length === 0) {
-          return;
-        }
-
-        firstCharCode = line.charCodeAt(0);
-        const lastCharCode = line.charCodeAt(line.length - 1);
-
-        if (
-          firstCharCode === 47 // 47 `/`
-          // ends with
-          // _160-600.
-          // -detect-adblock.
-          // _web-advert.
-          || lastCharCode === 46 // 46 `.`, line.endsWith('.')
-          || lastCharCode === 45 // 45 `-`, line.endsWith('-')
-          || lastCharCode === 95 // 95 `_`, line.endsWith('_')
-        ) {
-          return;
-        }
-
-        if ((line.includes('/') || line.includes(':')) && !line.includes('://')) {
-          // ignore any line that has "/" or ":" but not "://"
-          return;
-        }
-
-        controller.enqueue(line);
-      }
-    });
+export function ignoreAdGuardUnsupportedLine(line: string): string | null {
+  let firstCharCode = line.charCodeAt(0);
+  if (
+    // bail out path-like/cosmetic very early, even before trim
+    firstCharCode === 47 // /
+    || firstCharCode === 35 // #
+    // doesn't include
+    || !line.includes('.') // rule with out dot can not be a domain
+    || kwfilter(line) // filter out some symbols/modifiers
+  ) {
+    return null;
   }
+
+  line = line.trim();
+
+  if (line.length === 0) {
+    return null;
+  }
+
+  firstCharCode = line.charCodeAt(0);
+  const lastCharCode = line.charCodeAt(line.length - 1);
+
+  if (
+    firstCharCode === 47 // 47 `/`
+    // ends with
+    // _160-600.
+    // -detect-adblock.
+    // _web-advert.
+    || lastCharCode === 46 // 46 `.`, line.endsWith('.')
+    || lastCharCode === 45 // 45 `-`, line.endsWith('-')
+    || lastCharCode === 95 // 95 `_`, line.endsWith('_')
+  ) {
+    return null;
+  }
+
+  if ((line.includes('/') || line.includes(':')) && !line.includes('://')) {
+    // ignore any line that has "/" or ":" but not "://"
+    return null;
+  }
+
+  return line;
 }
 
 export function parse(line: string, result: [string, ParseType], includeThirdParty: boolean): [hostname: string, flag: ParseType] {
-  // We have already done this in AdGuardFilterIgnoreUnsupportedLinesStream
+  // We have already done this in ignoreAdGuardUnsupportedLine
 
   // if (
   //   // doesn't include
