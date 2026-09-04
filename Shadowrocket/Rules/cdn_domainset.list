@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/cdn.conf
-# Source Last Updated: 2026-09-02T08:32:50.993Z
-# Source Content Hash: mSX06OhWUQcAXJZclvk6EbJdvaooc7eY9P7ZGzin4zY$
+# Source Last Updated: 2026-09-04T02:06:57.617Z
+# Source Content Hash: HRGX1-rvuqpwUUtFvtpJuL9BjM1nlbyQ28IChpQnk3c$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 4650
+# Rule Count: 4651
 0x0.st
 eep.io
 .esm.sh
@@ -1823,6 +1823,7 @@ cdn.hashnode.com
 cdn.hero-sms.com
 cdn.highporn.net
 cdn.hinative.com
+cdn.imgchest.com
 .cdn.imghaste.com
 cdn.jwplayer.com
 cdn.kinopio.club

@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-09-01T19:55:55.674Z
-# Source Content Hash: 8ORtEbGjVEuA-GTP7u34WwEVdPYDizcDJVisakt4UzY$
+# Source Last Updated: 2026-09-03T19:49:15.654Z
+# Source Content Hash: agPV3h4xpdQJJnIioGBg8TLoYK05H6KCft0fscO5Rzk$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3362
+# Rule Count: 3365
 .fast.com
 fastme.ir
 .nperf.net
@@ -2437,6 +2437,7 @@ speed-oak.systemlifeline.com
 speed.circlecityinternet.com
 speed.newclicktelecom.com.br
 speed.supersonicinternet.com
+speed.uberlinktelecom.com.br
 speed02.buchholz-digital.net
 speedfor.infolinktelecom.com
 speedhn.radius2online.com.tr
@@ -2998,6 +2999,7 @@ speedtestss2.angelbroadband.com
 speedtesttucson.arkdnacloud.com
 st-ankara-1.turksatkablo.com.tr
 st-atakoy-1.turksatkablo.com.tr
+st-edirne-1.turksatkablo.com.tr
 st-manisa-1.turksatkablo.com.tr
 st-samsun-1.turksatkablo.com.tr
 stbellevillewireless.rogers.com
@@ -3149,6 +3151,7 @@ speedtest-ookla-beta.giant.net.uk
 speedtest-ookla-roc1.synoptek.com
 speedtest-sanbonifacio.wifiweb.it
 speedtest-seattle.ripplefiber.com
+speedtest-thn.uk.airbytes.network
 speedtest.7stardigitalnetwork.com
 speedtest.fra01.fusionflare.cloud
 speedtest.heartlandtechnology.com
