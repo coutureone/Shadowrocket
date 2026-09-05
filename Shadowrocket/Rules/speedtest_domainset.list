@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-09-03T19:49:15.654Z
-# Source Content Hash: agPV3h4xpdQJJnIioGBg8TLoYK05H6KCft0fscO5Rzk$
+# Source Last Updated: 2026-09-04T19:33:54.599Z
+# Source Content Hash: Z6gsB_xZawwab-wCCoP37YWH7qi5mp2h4VvLgjbLEWA$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3365
+# Rule Count: 3367
 .fast.com
 fastme.ir
 .nperf.net
@@ -1729,6 +1729,7 @@ speedtest.technofiber.co
 speedtest.twinvalley.net
 speedtest.unifica.net.br
 speedtest.vanciscloud.nl
+speedtest.virtical.cloud
 .speedtest.windstream.net
 speedtest.worldstream.nl
 speedtest.wrinternet.com
@@ -2600,6 +2601,7 @@ brindb2speed1.wireline.com.au
 chi-speedtest.net.sangoma.net
 cspeedtest.candorsolution.com
 dal-speedtest.net.sangoma.net
+dlls-speedtest.northstate.net
 dns.yesindiacommunications.in
 edgemark-chi.cust.edgemark.io
 edgemark-lax.cust.edgemark.io
