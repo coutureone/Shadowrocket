@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/cdn.conf
-# Source Last Updated: 2026-09-04T02:06:57.617Z
-# Source Content Hash: HRGX1-rvuqpwUUtFvtpJuL9BjM1nlbyQ28IChpQnk3c$
+# Source Last Updated: 2026-09-05T11:56:51.377Z
+# Source Content Hash: HtGpnABqVHI46w858alL1A1ExP4XZEH_oBYqhmAPrL8$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 4651
+# Rule Count: 4653
 0x0.st
 eep.io
 .esm.sh
@@ -325,6 +325,7 @@ o.n1mp.org
 .odycdn.com
 p.sda1.dev
 .pagecdn.io
+.pgimgs.com
 .phncdn.com
 .pinimg.com
 .pixhost.to
@@ -2397,6 +2398,7 @@ st.codeforces.com
 st.deviantart.net
 static-id.fc2.com
 static-sv.fc2.com
+.static-upwork.com
 static.ahrefs.com
 static.anysex.com
 static.bbci.co.uk
@@ -3584,6 +3586,7 @@ static.buydomains.com
 static.chessarena.com
 static.clips4sale.com
 static.getpostman.com
+static.idp.sph.com.sg
 static.mytonwallet.io
 static.openreplay.com
 static.pfrt.yna.co.kr
@@ -4019,7 +4022,6 @@ assets.documentcloud.org
 assets.geeksforgeeks.org
 assets.nationbuilder.com
 assets.prowritingaid.com
-assets.static-upwork.com
 assets.trainingpeaks.com
 assets10.lottiefiles.com
 atl-global.atlassian.com
