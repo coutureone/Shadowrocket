@@ -15,7 +15,7 @@ https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Sh
 3. 选中下载的配置文件，将首页“全局路由”设为“配置”。
 4. 在 Shadowrocket 首页手动选择一个机场节点。所有需要代理的国外、AI、流媒体及 Telegram 流量都会使用当前节点；配置不会自动选择或切换节点。
 
-国内域名及中国大陆 IPv4/IPv6 默认直连，国外和未知流量统一使用小火箭内置的 `PROXY`，也就是首页当前手选的机场节点。配置没有 `Auto` 和地区策略组，不会后台更换出口。
+国内域名及中国大陆 IPv4 默认直连；本配置已禁用 Shadowrocket 的 IPv6，避免 IPv4/IPv6 出口国家不一致。国外和未知流量统一使用小火箭内置的 `PROXY`，也就是首页当前手选的机场节点。配置没有 `Auto` 和地区策略组，不会后台更换出口。
 
 AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.list` 补齐 Gemini 与 ChatGPT 的登录、鉴权、API、静态资源和实时通信依赖。AI 连接和国外 DoH 都使用当前 `PROXY` 节点，避免 DNS 与连接出口国家不一致。Gemini 所需的 Google 登录、`google.com`、`googleapis.com`、`gstatic.com` 和 `googleusercontent.com` 依赖已统一锁定到 `PROXY`；这会让 Google AI 会话的地区判断使用同一个出口。
 
@@ -26,6 +26,7 @@ AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.
 - DNS 失败不会回退到 iOS 系统 DNS。
 - 机场节点域名在隧道建立前通过直连的国内 DoH 加密解析。
 - 节点不支持 UDP 时拒绝该 UDP 流量，不静默改成直连。
+- Shadowrocket 的 IPv6 已关闭；系统其它应用的原生 IPv6 状态不由此配置改变。
 
 ## 验证
 
@@ -41,7 +42,7 @@ AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.
 
 `.github/workflows/update-shadowrocket-rules.yml` 每天北京时间 11:47 从 Sukka 官方 Ruleset Server 获取构建结果，通过 `Shadowrocket/scripts/update-rules.mjs` 转换后写入 `Shadowrocket/Rules/`。主配置只引用本仓库中的这些转换结果，不再依赖第三方 Shadowrocket 规则仓库。
 
-转换器保留 Shadowrocket 支持的域名、USER-AGENT、IPv4/IPv6 CIDR 和 ASN 规则，自动删除 Surge/iOS 不适用或需要 MITM 的 `PROCESS-NAME`、`URL-REGEX` 等内容。CDN、下载和网易云均同时覆盖其域名/non-IP/IP补充规则。广告、Map Local、全局 MITM 和其他 Surge 专属模块不会转换。
+转换器保留 Shadowrocket 支持的域名、USER-AGENT、IPv4/IPv6 CIDR 和 ASN 规则，自动删除 Surge/iOS 不适用或需要 MITM 的 `PROCESS-NAME`、`URL-REGEX` 等内容。当前主配置不引用 IPv6 CIDR 列表，因为 IPv6 已禁用；其余 CDN、下载和网易云均同时覆盖域名/non-IP/IP补充规则。广告、Map Local、全局 MITM 和其他 Surge 专属模块不会转换。
 
 ## AI 地区问题检查
 
