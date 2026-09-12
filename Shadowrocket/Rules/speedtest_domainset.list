@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-09-10T19:40:04.133Z
-# Source Content Hash: Ds6ke1FFBWaq2HEv9XBW0ZggFgB3ZBQnSM4Vy9hYXiQ$
+# Source Last Updated: 2026-09-11T19:40:51.422Z
+# Source Content Hash: -ifOZAh_scEkyJZyO94dPxfcAXpUp53UNQEQmFEloco$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3379
+# Rule Count: 3381
 .fast.com
 fastme.ir
 .nperf.net
@@ -1920,6 +1920,7 @@ speedtest.plasmanodes.com
 speedtest.powernet.com.ru
 speedtest.puraknet.com.br
 speedtest.rajeshcable.com
+speedtest.respawnhost.com
 speedtest.rtm.t-mobile.nl
 speedtest.samparkinfo.com
 speedtest.sesfiber.com.br
@@ -3015,6 +3016,7 @@ st-ankara-1.turksatkablo.com.tr
 st-atakoy-1.turksatkablo.com.tr
 st-edirne-1.turksatkablo.com.tr
 st-manisa-1.turksatkablo.com.tr
+st-mersin-1.turksatkablo.com.tr
 st-samsun-1.turksatkablo.com.tr
 stbellevillewireless.rogers.com
 stgeorgetownwireless.rogers.com
