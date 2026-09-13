@@ -1,8 +1,8 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/ip/china_ip.conf
-# Source Last Updated: 2026-09-11T19:40:52.171Z
-# Source Content Hash: C3Bf3kGzk0bWaZ4XHbbVumHlMmjNA8JJGwEjrfUZXqc$
+# Source Last Updated: 2026-09-12T13:55:44.373Z
+# Source Content Hash: gNCS-P7N0gfjaf5omUwgC-wjE2PAUf-omZkxlM8BQ98$
 # License: CC-BY-SA-2.0
 # Conversion Mode: ip
 # Unsupported or inapplicable entries removed: none
@@ -3812,7 +3812,7 @@ IP-CIDR,222.126.170.0/23
 IP-CIDR,222.126.172.0/22
 IP-CIDR,222.126.180.0/22
 IP-CIDR,222.126.184.0/22
-IP-CIDR,222.126.188.0/23
+IP-CIDR,222.126.188.0/24
 IP-CIDR,222.126.192.0/22
 IP-CIDR,222.126.196.0/23
 IP-CIDR,222.126.200.0/22

@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/non_ip/global.conf
-# Source Last Updated: 2026-08-05T12:33:04.218Z
-# Source Content Hash: ZN9fRXPGIwvFkg6hO1C-QenBwugCQ5dZM7Dgcqm39aQ$
+# Source Last Updated: 2026-09-12T18:18:09.438Z
+# Source Content Hash: uq2srddtA_SpQFylp-v1hjO-_ugEdXkdlXEI5BzYBqY$
 # License: AGPL-3.0
 # Conversion Mode: domain
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 1269
+# Rule Count: 1270
 DOMAIN-SUFFIX,ac
 DOMAIN-SUFFIX,ai
 DOMAIN-SUFFIX,at
@@ -766,6 +766,7 @@ DOMAIN-SUFFIX,bitchute.com
 DOMAIN-SUFFIX,bitfinex.com
 DOMAIN-SUFFIX,blizzard.com
 DOMAIN-SUFFIX,blogblog.com
+DOMAIN-SUFFIX,boxcloud.com
 DOMAIN-SUFFIX,broadcom.com
 DOMAIN-SUFFIX,cachefly.net
 DOMAIN-SUFFIX,capitalg.com
