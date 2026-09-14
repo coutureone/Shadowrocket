@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/cdn.conf
-# Source Last Updated: 2026-09-12T18:18:09.839Z
-# Source Content Hash: ndYY74W0Ppmi1vA7DS7MBlv98lXlY_PZuc1oPYk0yuA$
+# Source Last Updated: 2026-09-13T08:44:07.146Z
+# Source Content Hash: X8Wk331c8UeLJ9QMFstyQ4GA6jD5ouoISSmvMos-GF8$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 4655
+# Rule Count: 4661
 0x0.st
 eep.io
 .esm.sh
@@ -597,6 +597,7 @@ zzz.wxw.moe
 aimg.fc2.com
 ajax.cat.net
 .apperoni.top
+.axiom-cdn.io
 .axis-cdn.net
 b.peatio.com
 b.sf-syn.com
@@ -1057,6 +1058,7 @@ st6-20.vk.com
 static.dw.com
 static.ffx.io
 static.iyf.tv
+static.jup.ag
 static.k2s.cc
 static.nrk.no
 static.ui.com
@@ -3076,6 +3078,7 @@ sync.getpublica.com
 tag.unifyintent.com
 tags.nationwide.com
 thumb.wikimedia.org
+thumbnails.padre.gg
 thumbs.onlyfans.com
 thumbs2.sendvid.com
 tile2.intervals.icu
@@ -4126,6 +4129,7 @@ tiles.openrailwaymap.org
 tools-static.wmflabs.org
 typescript.azureedge.net
 ubistatic2-a.ubisoft.com
+ugc.production.linktr.ee
 viu-static.akamaized.net
 web-assets.zendesk.co.jp
 wl-apps.yourwebsite.life
@@ -4149,6 +4153,7 @@ cdn.privacy.paramount.com
 cdn.registerdisney.go.com
 changelog-widget.canny.io
 chunk-composing.canva.com
+coin-images.coingecko.com
 components.justanswer.com
 cors-proxy.htmldriven.com
 .crashlytics2.l.google.com
@@ -4321,6 +4326,7 @@ antiqua-ux-cdn.monotype.com
 app-static-prod.posthog.com
 article-image-ix.nikkei.com
 assets.braintreegateway.com
+assets.production.linktr.ee
 assets.weather-forecast.com
 .cdn-lfs-us-1.huggingface.co
 cdn-live.foreignaffairs.com
