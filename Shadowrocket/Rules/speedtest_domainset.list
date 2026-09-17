@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-09-15T20:13:52.325Z
-# Source Content Hash: tHy9NtahA52M8ukhTW32EFe62PGYlxcOlrJNXcYAMW8$
+# Source Last Updated: 2026-09-16T20:05:54.888Z
+# Source Content Hash: O7uJyN9wfOo5TBVPvkd_KLgdB45u3I6simaxXxoC86o$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3384
+# Rule Count: 3385
 .fast.com
 fastme.ir
 .nperf.net
@@ -745,6 +745,7 @@ speedtest.vee.com.tw
 speedtest.vpsfree.es
 .speedtest.warian.net
 speedtest.westpa.net
+speedtest.wsp.net.br
 speedtest.xipnet.com
 speedtest.yalniz.net
 speedtest01.ehtel.ca
