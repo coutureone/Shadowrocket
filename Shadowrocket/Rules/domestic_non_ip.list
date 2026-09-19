@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/non_ip/domestic.conf
-# Source Last Updated: 2026-08-08T06:31:42.029Z
-# Source Content Hash: T_za7NN7pWO6RMdaJduvv6ssx377hsJAKf_gBeOSZrA$
+# Source Last Updated: 2026-09-18T13:04:49.628Z
+# Source Content Hash: u1_GAhmdU8R2sz5rspM5LIA3nMHrTi14HL6vgoGv9M8$
 # License: AGPL-3.0
 # Conversion Mode: domain
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 868
+# Rule Count: 869
 DOMAIN-SUFFIX,3.cn
 DOMAIN-SUFFIX,6.cn
 DOMAIN-SUFFIX,t.cn
@@ -779,6 +779,7 @@ DOMAIN-SUFFIX,onlinedown.com
 DOMAIN-SUFFIX,openinstall.io
 DOMAIN-SUFFIX,oppomobile.com
 DOMAIN-SUFFIX,qyerstatic.com
+DOMAIN-SUFFIX,rednotecdn.com
 DOMAIN,res.viayoo.com
 DOMAIN-SUFFIX,steamchina.com
 DOMAIN-SUFFIX,tianyancha.com
