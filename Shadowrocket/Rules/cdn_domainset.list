@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/cdn.conf
-# Source Last Updated: 2026-09-18T14:58:18.360Z
-# Source Content Hash: U__3yaJlg8TGRRrwUtjmh4SwojOqwU0HlgVlm297XTc$
+# Source Last Updated: 2026-09-20T05:43:25.669Z
+# Source Content Hash: RRRNw6MWkVfoOJDeHjYf9EowovyHgaDDQTu42XiO-Mk$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 4664
+# Rule Count: 4668
 0x0.st
 eep.io
 .esm.sh
@@ -991,6 +991,7 @@ info.knak.com
 .itvstatic.com
 .jdbstatic.com
 .jisuimage.com
+js.arcgis.com
 js.klarna.com
 js.prosopo.io
 js.pusher.com
@@ -2193,6 +2194,7 @@ cdn.freshdesk.com
 cdn.growthbook.io
 cdn.headwayapp.co
 cdn.himetrica.com
+cdn.infrawire.net
 cdn.ipregistry.co
 cdn.jetphotos.com
 cdn.joinhoney.com
@@ -3085,6 +3087,7 @@ thumbs.onlyfans.com
 thumbs2.sendvid.com
 tile2.intervals.icu
 tiles.mapillary.com
+tileserver.b10s.net
 time.cloudflare.com
 tuf-repo.github.com
 ui.contentstack.com
@@ -3890,6 +3893,7 @@ cdn.prod.www.spiegel.de
 cdn.ready-market.com.tw
 .cdn.survey.medallia.com
 cdn.worldvectorlogo.com
+cdn1.singteldigital.com
 cdnstatic.porno-cum.com
 cdnstatic.tencentcs.com
 cms.worldpokerdeals.com
