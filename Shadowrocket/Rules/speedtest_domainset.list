@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-09-19T19:18:21.724Z
-# Source Content Hash: dcWw7o769btuKvsDySnQEVK7AlgJscq4RvFvpqa6ryQ$
+# Source Last Updated: 2026-09-22T18:38:06.505Z
+# Source Content Hash: f1exDkfYlHSXEaVbeEUiqhG-LkfPqhETGTaZTvmOdKI$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3393
+# Rule Count: 3397
 .fast.com
 fastme.ir
 .nperf.net
@@ -137,6 +137,7 @@ ookla.4g5g.co.uk
 ookla.apuacom.it
 ookla.dns-net.de
 ookla.nieqtv.com
+ookla.onivia.net
 ookla.ukcell.net
 ookla1.btd.co.id
 ookla1.hub66.com
@@ -545,6 +546,7 @@ speedtest.xcelx.net
 speedtest.xsnews.nl
 speedtest.xxlnet.nl
 speedtest1.claro.cr
+speedtest1.co-fi.es
 speedtest2.telin.sg
 speedtest3.dacor.de
 .speedtestcustom.com
@@ -1368,6 +1370,7 @@ ookla.b2.neptune.net.au
 ookla.fibraleste.com.br
 ookla.p2.neptune.net.au
 ookla.pgservicos.com.br
+ookla.pgservicos.net.br
 ookla.speedtest.cnix.cn
 perf-01.ixn.as42689.net
 prescott1.cabospeed.com
@@ -1639,6 +1642,7 @@ speedgwh1.jioconnect.com
 speedshm1.jioconnect.com
 speedtest-01.omnitel.biz
 speedtest-1.litfibre.com
+speedtest-2.hynetwifi.it
 speedtest-cbr.cdn.on.net
 speedtest-de.unihost.com
 speedtest-de.webdade.com
