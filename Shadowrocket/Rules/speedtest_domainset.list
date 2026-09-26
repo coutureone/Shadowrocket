@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-09-22T18:38:06.505Z
-# Source Content Hash: f1exDkfYlHSXEaVbeEUiqhG-LkfPqhETGTaZTvmOdKI$
+# Source Last Updated: 2026-09-25T20:28:38.080Z
+# Source Content Hash: 3AzhrTUuuNKziw3mhV0e_MPFCKE3_snOl1aP-KFrHuA$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3397
+# Rule Count: 3402
 .fast.com
 fastme.ir
 .nperf.net
@@ -120,6 +120,7 @@ speed.xiber.net
 .speednet.net.tr
 .speedtest.rt.ru
 speedtest.uv.es
+sptst1.ntua.net
 st02.mtnsat.net
 st04.mtnsat.net
 st1.tbaytel.net
@@ -1103,6 +1104,7 @@ sp5ookla.flynetwork.it
 spd-phnhazva.wyyerd.io
 spd-phnxaz19.wyyerd.io
 spd-sndacawa.wyyerd.io
+spd-sndgcajw.wyyerd.io
 spd.primenetisp.com.br
 speed-test.ornethd.net
 speed.amazonett.com.br
@@ -1181,6 +1183,7 @@ speedtest.durgawifi.in
 speedtest.e-net.net.in
 speedtest.einet.etc.br
 speedtest.execulink.ca
+speedtest.eyeit.com.br
 .speedtest.fastwyre.com
 speedtest.fbc-tele.com
 speedtest.fibim.com.tr
@@ -2039,6 +2042,7 @@ ookla-speedtest.e-ports.eu
 ookla.araujotelecom.com.br
 ooklaspeedtest.d-pcomm.com
 phc-speed.twmbroadband.com
+riospeedtest.rconnects.com
 sgpspeedtest.cmctelecom.vn
 sp1.nokeconsultoria.com.br
 spd.salesnettelecom.com.br
@@ -2329,6 +2333,7 @@ speedtest.dal1.nitelusa.net
 speedtest.defferrari.com.br
 speedtest.eletrochip.net.br
 speedtest.gabysantos.com.br
+speedtest.genxbroadband.com
 speedtest.gorkhainfotech.in
 speedtest.hearstconnect.com
 speedtest.heuer-und-sack.de
