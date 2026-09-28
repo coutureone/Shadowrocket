@@ -32,9 +32,9 @@ rule-providers:
   ai_ip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/ai_ip.yaml
-    path: ./rules/ai_ip.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/ai_ip.mrs
+    path: ./rules/ai_ip.mrs
     interval: 86400
   ai_non_ip:
     type: http
@@ -53,9 +53,9 @@ rule-providers:
   apple_cdn_domainset:
     type: http
     behavior: domain
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/apple_cdn_domainset.yaml
-    path: ./rules/apple_cdn_domainset.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/apple_cdn_domainset.mrs
+    path: ./rules/apple_cdn_domainset.mrs
     interval: 86400
   apple_cn_non_ip:
     type: http
@@ -81,9 +81,9 @@ rule-providers:
   cdn_domainset:
     type: http
     behavior: domain
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/cdn_domainset.yaml
-    path: ./rules/cdn_domainset.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/cdn_domainset.mrs
+    path: ./rules/cdn_domainset.mrs
     interval: 86400
   cdn_non_ip:
     type: http
@@ -95,16 +95,16 @@ rule-providers:
   china_ip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/china_ip.yaml
-    path: ./rules/china_ip.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/china_ip.mrs
+    path: ./rules/china_ip.mrs
     interval: 86400
   china_ip_ipv6:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/china_ip_ipv6.yaml
-    path: ./rules/china_ip_ipv6.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/china_ip_ipv6.mrs
+    path: ./rules/china_ip_ipv6.mrs
     interval: 86400
   direct_non_ip:
     type: http
@@ -116,9 +116,9 @@ rule-providers:
   domestic_ip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/domestic_ip.yaml
-    path: ./rules/domestic_ip.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/domestic_ip.mrs
+    path: ./rules/domestic_ip.mrs
     interval: 86400
   domestic_non_ip:
     type: http
@@ -130,9 +130,9 @@ rule-providers:
   download_domainset:
     type: http
     behavior: domain
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/download_domainset.yaml
-    path: ./rules/download_domainset.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/download_domainset.mrs
+    path: ./rules/download_domainset.mrs
     interval: 86400
   download_non_ip:
     type: http
@@ -151,9 +151,9 @@ rule-providers:
   lan_ip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/lan_ip.yaml
-    path: ./rules/lan_ip.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/lan_ip.mrs
+    path: ./rules/lan_ip.mrs
     interval: 86400
   lan_non_ip:
     type: http
@@ -179,9 +179,9 @@ rule-providers:
   neteasemusic_ip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/neteasemusic_ip.yaml
-    path: ./rules/neteasemusic_ip.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/neteasemusic_ip.mrs
+    path: ./rules/neteasemusic_ip.mrs
     interval: 86400
   neteasemusic_non_ip:
     type: http
@@ -193,16 +193,16 @@ rule-providers:
   speedtest_domainset:
     type: http
     behavior: domain
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/speedtest_domainset.yaml
-    path: ./rules/speedtest_domainset.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/speedtest_domainset.mrs
+    path: ./rules/speedtest_domainset.mrs
     interval: 86400
   stream_ip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/stream_ip.yaml
-    path: ./rules/stream_ip.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/stream_ip.mrs
+    path: ./rules/stream_ip.mrs
     interval: 86400
   stream_non_ip:
     type: http
@@ -214,9 +214,9 @@ rule-providers:
   telegram_ip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/telegram_ip.yaml
-    path: ./rules/telegram_ip.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/telegram_ip.mrs
+    path: ./rules/telegram_ip.mrs
     interval: 86400
   telegram_non_ip:
     type: http

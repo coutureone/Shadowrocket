@@ -26,8 +26,23 @@ jobs:
           ref: master
           fetch-depth: 0
 
+      - name: Install pinned Mihomo ruleset converter
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.19.31 --repo MetaCubeX/mihomo \
+            --pattern mihomo-linux-amd64-v1.19.31.gz --dir /tmp --clobber
+          echo 'd5e74bbddbdfff49a1aef7775bf5911da59f0d7196ed509a0ac914b3653dd5f1  /tmp/mihomo-linux-amd64-v1.19.31.gz' | sha256sum -c -
+          gzip -dc /tmp/mihomo-linux-amd64-v1.19.31.gz > /tmp/mihomo-ruleset
+          chmod +x /tmp/mihomo-ruleset
+
       - name: Convert Sukka rules for Shadowrocket
         run: node Shadowrocket/scripts/update-rules.mjs
+
+      - name: Compile Mihomo rule providers
+        env:
+          MIHOMO_BIN: /tmp/mihomo-ruleset
+        run: node Shadowrocket/scripts/update-clash-mrs.mjs
 
       - name: Commit updated rules
         shell: bash
