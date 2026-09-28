@@ -1,3 +1,5 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Source: Shadowrocket/Rules/neteasemusic_non_ip.list
 payload:
-  - "+music.126.net"
-  - "+music.163.com"
+  - "DOMAIN-SUFFIX,music.126.net"
+  - "DOMAIN-SUFFIX,music.163.com"

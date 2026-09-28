@@ -118,3 +118,4 @@ await mkdir(OUTPUT_DIR, { recursive: true });
 const results = [];
 for (const source of SOURCES) results.push(await updateOne(source));
 console.log(results.join('\n'));
+await import('./update-clash-rules.mjs');

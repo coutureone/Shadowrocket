@@ -1,3 +1,5 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Source: Shadowrocket/Rules/neteasemusic_ip.list
 payload:
   - "39.105.63.80/32"
   - "45.254.48.1/32"

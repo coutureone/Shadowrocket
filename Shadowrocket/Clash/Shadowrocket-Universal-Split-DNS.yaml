@@ -20,14 +20,14 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: CN
-    geosite: [gfw]
     ipcidr: [0.0.0.0/8, 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/8, 224.0.0.0/4]
-  fake-ip-filter: ['*.lan', '*.local', 'localhost', '+.home.arpa', 'time.*.com']
+  fake-ip-filter: ['*.lan', '*.local', 'localhost', '+.home.arpa', 'time.*.com', '+.push.apple.com', '+.push-apple.com.akadns.net']
 proxies: []
 proxy-groups:
   - name: PROXY
     type: select
-    proxies: [DIRECT]
+    include-all: true
+    proxies: [REJECT]
 rule-providers:
   ai_ip:
     type: http
@@ -38,14 +38,14 @@ rule-providers:
     interval: 86400
   ai_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/ai_non_ip.yaml
     path: ./rules/ai_non_ip.yaml
     interval: 86400
   ai_supplemental_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/ai_supplemental_non_ip.yaml
     path: ./rules/ai_supplemental_non_ip.yaml
@@ -59,21 +59,21 @@ rule-providers:
     interval: 86400
   apple_cn_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/apple_cn_non_ip.yaml
     path: ./rules/apple_cn_non_ip.yaml
     interval: 86400
   apple_intelligence_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/apple_intelligence_non_ip.yaml
     path: ./rules/apple_intelligence_non_ip.yaml
     interval: 86400
   apple_services_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/apple_services_non_ip.yaml
     path: ./rules/apple_services_non_ip.yaml
@@ -87,7 +87,7 @@ rule-providers:
     interval: 86400
   cdn_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/cdn_non_ip.yaml
     path: ./rules/cdn_non_ip.yaml
@@ -108,7 +108,7 @@ rule-providers:
     interval: 86400
   direct_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/direct_non_ip.yaml
     path: ./rules/direct_non_ip.yaml
@@ -122,7 +122,7 @@ rule-providers:
     interval: 86400
   domestic_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/domestic_non_ip.yaml
     path: ./rules/domestic_non_ip.yaml
@@ -136,14 +136,14 @@ rule-providers:
     interval: 86400
   download_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/download_non_ip.yaml
     path: ./rules/download_non_ip.yaml
     interval: 86400
   global_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/global_non_ip.yaml
     path: ./rules/global_non_ip.yaml
@@ -157,21 +157,21 @@ rule-providers:
     interval: 86400
   lan_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/lan_non_ip.yaml
     path: ./rules/lan_non_ip.yaml
     interval: 86400
   microsoft_cdn_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/microsoft_cdn_non_ip.yaml
     path: ./rules/microsoft_cdn_non_ip.yaml
     interval: 86400
   microsoft_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/microsoft_non_ip.yaml
     path: ./rules/microsoft_non_ip.yaml
@@ -185,7 +185,7 @@ rule-providers:
     interval: 86400
   neteasemusic_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/neteasemusic_non_ip.yaml
     path: ./rules/neteasemusic_non_ip.yaml
@@ -206,7 +206,7 @@ rule-providers:
     interval: 86400
   stream_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/stream_non_ip.yaml
     path: ./rules/stream_non_ip.yaml
@@ -220,12 +220,24 @@ rule-providers:
     interval: 86400
   telegram_non_ip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/telegram_non_ip.yaml
     path: ./rules/telegram_non_ip.yaml
     interval: 86400
 rules:
+  # APNs uses a persistent system connection shared by app notifications.
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT
+  - DOMAIN-SUFFIX,push-apple.com.akadns.net,DIRECT
+  - IP-CIDR,17.249.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,17.252.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,17.57.144.0/22,DIRECT,no-resolve
+  - IP-CIDR,17.188.128.0/18,DIRECT,no-resolve
+  - IP-CIDR,17.188.20.0/23,DIRECT,no-resolve
+  - IP-CIDR6,2620:149:a44::/48,DIRECT,no-resolve
+  - IP-CIDR6,2403:300:a42::/48,DIRECT,no-resolve
+  - IP-CIDR6,2403:300:a51::/48,DIRECT,no-resolve
+  - IP-CIDR6,2a01:b740:a42::/48,DIRECT,no-resolve
   - DOMAIN,localhost,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,home.arpa,DIRECT

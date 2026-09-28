@@ -1,6 +1,8 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Source: Shadowrocket/Rules/apple_intelligence_non_ip.list
 payload:
-  - "cp4.cloudflare.com"
-  - "apple-relay.apple.com"
-  - "gspe1-ssl.ls.apple.com"
-  - "apple-relay.cloudflare.com"
-  - "apple-relay.fastly-edge.com"
+  - "DOMAIN,cp4.cloudflare.com"
+  - "DOMAIN,apple-relay.apple.com"
+  - "DOMAIN,gspe1-ssl.ls.apple.com"
+  - "DOMAIN,apple-relay.cloudflare.com"
+  - "DOMAIN,apple-relay.fastly-edge.com"

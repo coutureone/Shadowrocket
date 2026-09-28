@@ -1,10 +1,12 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Source: Shadowrocket/Rules/download_non_ip.list
 payload:
-  - "download*.mediafire.com"
-  - "ftp.??.debian.org"
-  - "ftp.??.freebsd.org"
-  - "s3.*.backblazeb2.com"
-  - "*.s3.*.backblazeb2.com"
-  - "cdn-*.comaps.app"
-  - "cdn-*.comaps.tech"
-  - "cdn-*.organicmaps.app"
-  - "dl-*.mypikpak.com"
+  - "DOMAIN-WILDCARD,download*.mediafire.com"
+  - "DOMAIN-WILDCARD,ftp.??.debian.org"
+  - "DOMAIN-WILDCARD,ftp.??.freebsd.org"
+  - "DOMAIN-WILDCARD,s3.*.backblazeb2.com"
+  - "DOMAIN-WILDCARD,*.s3.*.backblazeb2.com"
+  - "DOMAIN-WILDCARD,cdn-*.comaps.app"
+  - "DOMAIN-WILDCARD,cdn-*.comaps.tech"
+  - "DOMAIN-WILDCARD,cdn-*.organicmaps.app"
+  - "DOMAIN-WILDCARD,dl-*.mypikpak.com"

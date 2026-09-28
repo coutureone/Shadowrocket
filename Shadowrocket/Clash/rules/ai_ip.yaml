@@ -1,3 +1,5 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Source: Shadowrocket/Rules/ai_ip.list
 payload:
   - "4.151.200.38/32"
   - "4.155.146.196/32"
