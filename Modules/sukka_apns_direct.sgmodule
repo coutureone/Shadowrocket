@@ -4,4 +4,3 @@
 [Rule]
 DOMAIN-SUFFIX,push.apple.com,DIRECT
 DOMAIN-SUFFIX,push-apple.com.akadns.net,DIRECT
-IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
