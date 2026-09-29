@@ -34,10 +34,21 @@ function ruleLines(content, isClash) {
     .filter((line) => line && !line.startsWith('#'));
 }
 
+function providerRules(rules) {
+  return rules.filter((rule) => /^(?:RULE-SET|DOMAIN-SET),/.test(rule))
+    .map((rule) => {
+      const [, target, policy] = rule.split(',');
+      const name = target.split('/').at(-1).replace(/\.list$/, '');
+      return `${name},${policy}`;
+    });
+}
+
+const providerOrder = new Map();
 for (const profile of profiles) {
   const isClash = profile.endsWith('.yaml');
   const content = await readFile(resolve(root, profile), 'utf8');
   const rules = ruleLines(content, isClash);
+  providerOrder.set(profile, providerRules(rules));
   let seenIp = false;
   for (const [index, rule] of rules.entries()) {
     const kind = ruleKind(rule);
@@ -55,6 +66,15 @@ for (const profile of profiles) {
   }
   console.log(`${profile}: ${rules.length} ordered rules`);
 }
+
+const reference = providerOrder.get(profiles[0]);
+for (const profile of profiles.slice(1)) {
+  const actual = providerOrder.get(profile);
+  if (JSON.stringify(actual) !== JSON.stringify(reference)) {
+    throw new Error(`${profile}: provider order or policy differs from ${profiles[0]}`);
+  }
+}
+console.log(`${reference.length} rule providers have matching priority and policy across profiles`);
 
 const clash = await readFile(resolve(root, profiles[2]), 'utf8');
 const providerSection = clash.split(/^rule-providers:\s*$/m)[1]?.split(/^rules:\s*$/m)[0];

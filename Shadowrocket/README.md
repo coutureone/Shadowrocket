@@ -19,7 +19,7 @@ https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Sh
 
 国内域名及中国大陆 IPv4 / IPv6 默认直连。Shadowrocket 已启用 IPv6，但双栈域名仍优先 IPv4；IPv6-only 目标按相同规则分流。国外和未知流量统一使用小火箭内置的 `PROXY`，也就是首页当前手选的节点，无论来自自建还是订阅。配置没有 `Auto` 和地区策略组，不会后台更换出口。
 
-AI、流媒体等专项代理规则优先于国内直连规则；Apple、Microsoft 和国内直连规则优先于通用 CDN 规则，避免国内资源因通用 CDN 列表而误走代理。测速和下载规则仍按原有优先级走代理。
+两份配置共用同一批 Sukka 规则和策略：本地、APNs、微信与腾讯域名先匹配；测速、流媒体、AI 和 Telegram 走代理；Apple、Microsoft、网易云的专项规则按原有策略直连；通用 CDN、下载走代理；局域网、国内和显式直连列表之后兜底，未知流量走代理。通用 CDN 现在优先于国内兜底，以覆盖上游列表中的海外静态资源。`bilivideo.com` 与 `wpscdn.com` 和已有腾讯域名在 CDN 之前直连，避免这些国内资源因顺序调整而改走代理。所有域名规则仍排在 IP 规则之前，IP 专项规则先于中国 IP 兜底。
 
 Sukka 的 Apple Services 源文件还包含 `17.0.0.0/8,no-resolve`。转换器将它单独保存为 `apple_services_ip.list`，放在所有域名规则之后直连；这样通过 Apple IP 直连的请求也能沿用上游规则，AI 等域名专项代理规则仍先匹配。APNs 代理测试配置中的精确 APNs IP 规则排在这一条广义 Apple IP 规则之前。
 
@@ -53,7 +53,7 @@ AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.
 
 转换器保留 Shadowrocket 支持的域名、USER-AGENT、IPv4/IPv6 CIDR 和 ASN 规则，自动删除 Surge/iOS 不适用或需要 MITM 的 `PROCESS-NAME`、`URL-REGEX` 等内容。当前主配置引用中国 IPv4 / IPv6 地址列表；其余 CDN、下载和网易云均同时覆盖域名/non-IP/IP补充规则。广告、Map Local、全局 MITM 和其他 Surge 专属模块不会转换。
 
-每日更新还会校验 Shadowrocket 与 Clash 配置的域名/IP 规则顺序，以及引用的规则文件是否存在。Clash 版本另将可编译的域名集、IP 列表制作成 MRS；无法编译的 `IP-ASN` 和不适用的 `USER-AGENT` 不导入 Clash。
+每日更新还会校验 Shadowrocket 与 Clash 配置的域名/IP 规则顺序、规则源优先级和策略是否一致，以及引用的规则文件是否存在。Clash 版本另将可编译的域名集、IP 列表制作成 MRS；无法编译的 `IP-ASN` 和不适用的 `USER-AGENT` 不导入 Clash。
 
 ## AI 地区问题检查
 

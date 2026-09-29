@@ -257,25 +257,29 @@ rules:
   - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
   - DOMAIN-SUFFIX,wechat.com,DIRECT
   - DOMAIN-SUFFIX,wx.qq.com,DIRECT
-  - RULE-SET,lan_non_ip,DIRECT
+  # Domestic video / document CDNs overlap Sukka's generic CDN set.
+  - DOMAIN-SUFFIX,bilivideo.com,DIRECT
+  - DOMAIN-SUFFIX,wpscdn.com,DIRECT
+  # Specific proxy/direct services precede the generic CDN set; CDN precedes domestic fallback.
+  - RULE-SET,speedtest_domainset,PROXY
+  - RULE-SET,stream_non_ip,PROXY
   - RULE-SET,ai_supplemental_non_ip,PROXY
   - RULE-SET,apple_intelligence_non_ip,PROXY
   - RULE-SET,ai_non_ip,PROXY
-  - RULE-SET,stream_non_ip,PROXY
   - RULE-SET,telegram_non_ip,PROXY
   - RULE-SET,apple_cdn_domainset,DIRECT
-  - RULE-SET,apple_cn_non_ip,DIRECT
   - RULE-SET,apple_services_non_ip,DIRECT
+  - RULE-SET,apple_cn_non_ip,DIRECT
   - RULE-SET,microsoft_cdn_non_ip,DIRECT
   - RULE-SET,microsoft_non_ip,DIRECT
   - RULE-SET,neteasemusic_non_ip,DIRECT
-  - RULE-SET,speedtest_domainset,PROXY
-  - RULE-SET,download_domainset,PROXY
-  - RULE-SET,download_non_ip,PROXY
-  - RULE-SET,domestic_non_ip,DIRECT
-  - RULE-SET,direct_non_ip,DIRECT
   - RULE-SET,cdn_domainset,PROXY
   - RULE-SET,cdn_non_ip,PROXY
+  - RULE-SET,download_domainset,PROXY
+  - RULE-SET,download_non_ip,PROXY
+  - RULE-SET,lan_non_ip,DIRECT
+  - RULE-SET,domestic_non_ip,DIRECT
+  - RULE-SET,direct_non_ip,DIRECT
   - RULE-SET,global_non_ip,PROXY
   # IP rules follow all domain and non-IP rules, as recommended by Sukka.
   - IP-CIDR,17.249.0.0/16,DIRECT,no-resolve
@@ -287,12 +291,12 @@ rules:
   - IP-CIDR6,2403:300:a42::/48,DIRECT,no-resolve
   - IP-CIDR6,2403:300:a51::/48,DIRECT,no-resolve
   - IP-CIDR6,2a01:b740:a42::/48,DIRECT,no-resolve
-  - RULE-SET,lan_ip,DIRECT
-  - RULE-SET,ai_ip,PROXY,no-resolve
   - RULE-SET,stream_ip,PROXY,no-resolve
+  - RULE-SET,ai_ip,PROXY,no-resolve
   - RULE-SET,telegram_ip,PROXY,no-resolve
   - RULE-SET,apple_services_ip,DIRECT,no-resolve
   - RULE-SET,neteasemusic_ip,DIRECT,no-resolve
+  - RULE-SET,lan_ip,DIRECT
   - RULE-SET,domestic_ip,DIRECT,no-resolve
   - RULE-SET,china_ip,DIRECT
   - RULE-SET,china_ip_ipv6,DIRECT
