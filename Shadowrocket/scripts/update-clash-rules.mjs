@@ -9,7 +9,7 @@ const outputDir = join(shadowrocketDir, 'Clash', 'rules');
 await mkdir(outputDir, { recursive: true });
 
 const names = [
-  'ai_ip', 'ai_non_ip', 'ai_supplemental_non_ip', 'apple_cdn_domainset',
+  'ai_ip', 'ai_non_ip', 'apple_cdn_domainset',
   'apple_cn_non_ip', 'apple_intelligence_non_ip', 'apple_services_non_ip',
   'apple_services_ip',
   'cdn_domainset', 'cdn_non_ip', 'china_ip', 'china_ip_ipv6', 'direct_non_ip',

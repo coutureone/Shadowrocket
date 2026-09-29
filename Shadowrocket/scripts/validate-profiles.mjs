@@ -5,8 +5,21 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const profiles = [
   'Shadowrocket/Shadowrocket-Universal-Split-DNS.conf',
-  'Shadowrocket/Shadowrocket-Universal-Split-DNS-APNs-Test.conf',
   'Shadowrocket/Clash/Shadowrocket-Universal-Split-DNS.yaml'
+];
+// Keep this in the category order published in SukkaW/Surge README.
+const expectedProviders = [
+  'speedtest_domainset,PROXY', 'cdn_domainset,PROXY', 'cdn_non_ip,PROXY',
+  'stream_non_ip,PROXY', 'ai_non_ip,PROXY', 'apple_intelligence_non_ip,PROXY',
+  'telegram_non_ip,PROXY', 'apple_cdn_domainset,DIRECT',
+  'apple_services_non_ip,DIRECT', 'apple_cn_non_ip,DIRECT',
+  'microsoft_cdn_non_ip,DIRECT', 'microsoft_non_ip,DIRECT',
+  'neteasemusic_non_ip,DIRECT', 'download_domainset,PROXY',
+  'download_non_ip,PROXY', 'lan_non_ip,DIRECT', 'domestic_non_ip,DIRECT',
+  'direct_non_ip,DIRECT', 'global_non_ip,PROXY', 'stream_ip,PROXY',
+  'ai_ip,PROXY', 'telegram_ip,PROXY', 'apple_services_ip,DIRECT',
+  'neteasemusic_ip,DIRECT', 'lan_ip,DIRECT', 'domestic_ip,DIRECT',
+  'china_ip,DIRECT', 'china_ip_ipv6,DIRECT'
 ];
 
 function ruleKind(rule) {
@@ -68,6 +81,9 @@ for (const profile of profiles) {
 }
 
 const reference = providerOrder.get(profiles[0]);
+if (JSON.stringify(reference) !== JSON.stringify(expectedProviders)) {
+  throw new Error(`${profiles[0]}: provider order or policy differs from Sukka README categories`);
+}
 for (const profile of profiles.slice(1)) {
   const actual = providerOrder.get(profile);
   if (JSON.stringify(actual) !== JSON.stringify(reference)) {
@@ -76,7 +92,19 @@ for (const profile of profiles.slice(1)) {
 }
 console.log(`${reference.length} rule providers have matching priority and policy across profiles`);
 
-const clash = await readFile(resolve(root, profiles[2]), 'utf8');
+const clash = await readFile(resolve(root, profiles[1]), 'utf8');
+const dns = clash.split(/^dns:\s*$/m)[1]?.split(/^proxies:\s*$/m)[0];
+const bootstrap = dns?.match(/^  default-nameserver:\s*\[([^\]]+)\]/m)?.[1]
+  .split(',').map((server) => server.trim());
+if (!bootstrap?.length || bootstrap.some((server) => !server.startsWith('https://'))) {
+  throw new Error('Clash DNS bootstrap must use encrypted DNS IP endpoints');
+}
+if (!/^  respect-rules: true$/m.test(dns)
+  || !/^  nameserver: .*#PROXY/m.test(dns)
+  || !/^  proxy-server-nameserver:/m.test(dns)
+  || /^  fallback:/m.test(dns)) {
+  throw new Error('Clash DNS routing or fallback no longer matches the split-DNS design');
+}
 const providerSection = clash.split(/^rule-providers:\s*$/m)[1]?.split(/^rules:\s*$/m)[0];
 if (!providerSection) throw new Error('Missing Clash rule providers');
 const providers = new Map();
