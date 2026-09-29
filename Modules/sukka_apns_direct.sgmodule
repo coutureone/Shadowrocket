@@ -1,0 +1,9 @@
+#!name=Sukka APNs Direct
+#!desc=Keep Apple Push Notification long-lived connections direct.
+#!system=ios,macos
+#!homepage=https://github.com/coutureone/Shadowrocket
+
+[Rule]
+DOMAIN-SUFFIX,push.apple.com,DIRECT
+DOMAIN-SUFFIX,push-apple.com.akadns.net,DIRECT
+IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
