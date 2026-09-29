@@ -1,0 +1,4 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Source: Shadowrocket/Rules/apple_services_ip.list
+payload:
+  - "17.0.0.0/8"

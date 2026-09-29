@@ -8,7 +8,7 @@ const domainSets = [
   'apple_cdn_domainset', 'cdn_domainset', 'download_domainset', 'speedtest_domainset'
 ];
 const ipSets = [
-  'ai_ip', 'china_ip', 'china_ip_ipv6', 'domestic_ip',
+  'ai_ip', 'apple_services_ip', 'china_ip', 'china_ip_ipv6', 'domestic_ip',
   'lan_ip', 'neteasemusic_ip', 'stream_ip', 'telegram_ip'
 ];
 

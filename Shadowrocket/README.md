@@ -15,9 +15,15 @@ https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Sh
 3. 选中下载的配置文件，将首页“全局路由”设为“配置”。
 4. 在 Shadowrocket 首页手动选择一个节点。所有需要代理的国外、AI、流媒体及 Telegram 流量都会使用当前节点；配置不会自动选择或切换节点。
 
+需要单独比较 APNs 路由时，可导入 [APNs 代理测试配置](./Shadowrocket-Universal-Split-DNS-APNs-Test.conf)。它只把 Apple 公布的推送域名和 IP 范围改为代理，其他分流沿用主配置；测试结束后可切回主配置。系统 APNs 流量是否进入隧道仍取决于 iOS 和 Shadowrocket 的设置。
+
 国内域名及中国大陆 IPv4 / IPv6 默认直连。Shadowrocket 已启用 IPv6，但双栈域名仍优先 IPv4；IPv6-only 目标按相同规则分流。国外和未知流量统一使用小火箭内置的 `PROXY`，也就是首页当前手选的节点，无论来自自建还是订阅。配置没有 `Auto` 和地区策略组，不会后台更换出口。
 
 AI、流媒体等专项代理规则优先于国内直连规则；Apple、Microsoft 和国内直连规则优先于通用 CDN 规则，避免国内资源因通用 CDN 列表而误走代理。测速和下载规则仍按原有优先级走代理。
+
+Sukka 的 Apple Services 源文件还包含 `17.0.0.0/8,no-resolve`。转换器将它单独保存为 `apple_services_ip.list`，放在所有域名规则之后直连；这样通过 Apple IP 直连的请求也能沿用上游规则，AI 等域名专项代理规则仍先匹配。APNs 代理测试配置中的精确 APNs IP 规则排在这一条广义 Apple IP 规则之前。
+
+APNs 使用的 `courier.push.apple.com` 可能经 `courier-push-apple.com.akadns.net` 别名解析，因此主配置对这个窄域名直连，测试配置则让它代理；不会把整个 `akadns.net` 改为代理。
 
 AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.list` 补齐 Gemini 与 ChatGPT 的登录、鉴权、API、静态资源和实时通信依赖。AI 连接和国外 DoH 都使用当前 `PROXY` 节点，避免 DNS 与连接出口国家不一致。Gemini 所需的 Google 登录、`google.com`、`googleapis.com`、`gstatic.com` 和 `googleusercontent.com` 依赖已统一锁定到 `PROXY`；这会让 Google AI 会话的地区判断使用同一个出口。
 
@@ -46,6 +52,8 @@ AI 规则除自动转换的 Sukka 规则外，还使用 `ai_supplemental_non_ip.
 `.github/workflows/update-shadowrocket-rules.yml` 每天北京时间 11:47 从 Sukka 官方 Ruleset Server 获取构建结果，通过 `Shadowrocket/scripts/update-rules.mjs` 转换后写入 `Shadowrocket/Rules/`。主配置只引用本仓库中的这些转换结果，不再依赖第三方 Shadowrocket 规则仓库。
 
 转换器保留 Shadowrocket 支持的域名、USER-AGENT、IPv4/IPv6 CIDR 和 ASN 规则，自动删除 Surge/iOS 不适用或需要 MITM 的 `PROCESS-NAME`、`URL-REGEX` 等内容。当前主配置引用中国 IPv4 / IPv6 地址列表；其余 CDN、下载和网易云均同时覆盖域名/non-IP/IP补充规则。广告、Map Local、全局 MITM 和其他 Surge 专属模块不会转换。
+
+每日更新还会校验 Shadowrocket 与 Clash 配置的域名/IP 规则顺序，以及引用的规则文件是否存在。Clash 版本另将可编译的域名集、IP 列表制作成 MRS；无法编译的 `IP-ASN` 和不适用的 `USER-AGENT` 不导入 Clash。
 
 ## AI 地区问题检查
 

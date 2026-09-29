@@ -12,6 +12,9 @@ dns:
   respect-rules: true
   default-nameserver: [223.5.5.5, 119.29.29.29]
   nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  # Resolve DIRECT destinations without depending on the selected proxy node.
+  direct-nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  direct-nameserver-follow-policy: false
   proxy-server-nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
   nameserver-policy:
     "geosite:cn": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
@@ -21,7 +24,7 @@ dns:
     geoip: true
     geoip-code: CN
     ipcidr: [0.0.0.0/8, 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/8, 224.0.0.0/4]
-  fake-ip-filter: ['*.lan', '*.local', 'localhost', '+.home.arpa', 'time.*.com', '+.push.apple.com', '+.push-apple.com.akadns.net']
+  fake-ip-filter: ['*.lan', '*.local', 'localhost', '+.home.arpa', 'time.*.com', '+.push.apple.com', '+.push-apple.com.akadns.net', '+.courier-push-apple.com.akadns.net']
 proxies: []
 proxy-groups:
   - name: PROXY
@@ -77,6 +80,13 @@ rule-providers:
     format: yaml
     url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/apple_services_non_ip.yaml
     path: ./rules/apple_services_non_ip.yaml
+    interval: 86400
+  apple_services_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Shadowrocket/Clash/rules/apple_services_ip.mrs
+    path: ./rules/apple_services_ip.mrs
     interval: 86400
   cdn_domainset:
     type: http
@@ -229,20 +239,24 @@ rules:
   # APNs uses a persistent system connection shared by app notifications.
   - DOMAIN-SUFFIX,push.apple.com,DIRECT
   - DOMAIN-SUFFIX,push-apple.com.akadns.net,DIRECT
-  - IP-CIDR,17.249.0.0/16,DIRECT,no-resolve
-  - IP-CIDR,17.252.0.0/16,DIRECT,no-resolve
-  - IP-CIDR,17.57.144.0/22,DIRECT,no-resolve
-  - IP-CIDR,17.188.128.0/18,DIRECT,no-resolve
-  - IP-CIDR,17.188.20.0/23,DIRECT,no-resolve
-  - IP-CIDR6,2620:149:a44::/48,DIRECT,no-resolve
-  - IP-CIDR6,2403:300:a42::/48,DIRECT,no-resolve
-  - IP-CIDR6,2403:300:a51::/48,DIRECT,no-resolve
-  - IP-CIDR6,2a01:b740:a42::/48,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,courier-push-apple.com.akadns.net,DIRECT
   - DOMAIN,localhost,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,home.arpa,DIRECT
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,cn,DIRECT
+  # Match WeChat/Tencent before the broad download and CDN proxy lists.
+  - DOMAIN-SUFFIX,qpic.cn,DIRECT
+  - DOMAIN-SUFFIX,qlogo.cn,DIRECT
+  - DOMAIN-SUFFIX,qcloud.com,DIRECT
+  - DOMAIN-SUFFIX,myqcloud.com,DIRECT
+  - DOMAIN-SUFFIX,qcloudimg.com,DIRECT
+  - DOMAIN-SUFFIX,tencent.com,DIRECT
+  - DOMAIN-SUFFIX,tencentcs.com,DIRECT
+  - DOMAIN-SUFFIX,tencentcs.cn,DIRECT
+  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wechat.com,DIRECT
+  - DOMAIN-SUFFIX,wx.qq.com,DIRECT
   - RULE-SET,lan_non_ip,DIRECT
   - RULE-SET,ai_supplemental_non_ip,PROXY
   - RULE-SET,apple_intelligence_non_ip,PROXY
@@ -263,12 +277,23 @@ rules:
   - RULE-SET,cdn_domainset,PROXY
   - RULE-SET,cdn_non_ip,PROXY
   - RULE-SET,global_non_ip,PROXY
+  # IP rules follow all domain and non-IP rules, as recommended by Sukka.
+  - IP-CIDR,17.249.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,17.252.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,17.57.144.0/22,DIRECT,no-resolve
+  - IP-CIDR,17.188.128.0/18,DIRECT,no-resolve
+  - IP-CIDR,17.188.20.0/23,DIRECT,no-resolve
+  - IP-CIDR6,2620:149:a44::/48,DIRECT,no-resolve
+  - IP-CIDR6,2403:300:a42::/48,DIRECT,no-resolve
+  - IP-CIDR6,2403:300:a51::/48,DIRECT,no-resolve
+  - IP-CIDR6,2a01:b740:a42::/48,DIRECT,no-resolve
   - RULE-SET,lan_ip,DIRECT
-  - RULE-SET,ai_ip,PROXY
-  - RULE-SET,stream_ip,PROXY
-  - RULE-SET,telegram_ip,PROXY
-  - RULE-SET,neteasemusic_ip,DIRECT
-  - RULE-SET,domestic_ip,DIRECT
+  - RULE-SET,ai_ip,PROXY,no-resolve
+  - RULE-SET,stream_ip,PROXY,no-resolve
+  - RULE-SET,telegram_ip,PROXY,no-resolve
+  - RULE-SET,apple_services_ip,DIRECT,no-resolve
+  - RULE-SET,neteasemusic_ip,DIRECT,no-resolve
+  - RULE-SET,domestic_ip,DIRECT,no-resolve
   - RULE-SET,china_ip,DIRECT
   - RULE-SET,china_ip_ipv6,DIRECT
   - GEOIP,CN,DIRECT

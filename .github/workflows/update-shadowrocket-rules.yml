@@ -44,6 +44,9 @@ jobs:
           MIHOMO_BIN: /tmp/mihomo-ruleset
         run: node Shadowrocket/scripts/update-clash-mrs.mjs
 
+      - name: Validate profile order and provider files
+        run: node Shadowrocket/scripts/validate-profiles.mjs
+
       - name: Commit updated rules
         shell: bash
         run: |

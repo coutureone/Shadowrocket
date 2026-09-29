@@ -11,6 +11,7 @@ await mkdir(outputDir, { recursive: true });
 const names = [
   'ai_ip', 'ai_non_ip', 'ai_supplemental_non_ip', 'apple_cdn_domainset',
   'apple_cn_non_ip', 'apple_intelligence_non_ip', 'apple_services_non_ip',
+  'apple_services_ip',
   'cdn_domainset', 'cdn_non_ip', 'china_ip', 'china_ip_ipv6', 'direct_non_ip',
   'domestic_ip', 'domestic_non_ip', 'download_domainset', 'download_non_ip',
   'global_non_ip', 'lan_ip', 'lan_non_ip', 'microsoft_cdn_non_ip',
@@ -28,6 +29,7 @@ function convert(line, name) {
   const [type, value] = line.split(',');
   if ((name.endsWith('_ip') && !name.endsWith('_non_ip')) || name.endsWith('_ip_ipv6')) {
     if (type === 'IP-CIDR' || type === 'IP-CIDR6') return value;
+    if (type === 'IP-ASN') return null; // MRS only supports CIDR entries.
     throw new Error(`${name}: unsupported IP rule: ${line}`);
   }
 

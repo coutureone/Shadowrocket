@@ -12,8 +12,8 @@
 
 ## 通知测试
 
-此模板将 Apple APNs 域名及 [Apple 公布的 APNs IP 段](https://support.apple.com/102266) 放在规则最前面直连，并让 APNs 域名避开 fake-ip。它没有把整个 `akadns.net` 或 Apple 流量强制送入代理。规则仅对 Mihomo 客户端实际接管的连接生效；iOS 是否把系统 APNs 连接交给 VPN，仍取决于客户端和系统隧道设置。
+此模板将 Apple APNs 域名及其 `courier-push-apple.com.akadns.net` 别名直连，并让这些域名避开 fake-ip；[Apple 公布的 APNs IP 段](https://support.apple.com/102266) 与 Sukka Apple Services 中的 `17.0.0.0/8,no-resolve` 在所有域名规则之后直连，保留上游要求的匹配顺序。直连目标单独使用国内加密 DNS，避免 APNs 解析依赖当前代理节点。微信和腾讯域名会先于通用下载、CDN 代理规则直连。规则仅对 Mihomo 客户端实际接管的连接生效；iOS 是否把系统 APNs 连接交给 VPN，仍取决于客户端和系统隧道设置。
 
 测试时先保持现有节点、通知权限和网络环境一致，分别在 Wi-Fi 与蜂窝网络下锁屏发送 X、Telegram 和微信消息。若只有蜂窝网络异常，再比较客户端连接日志中的 APNs 连接和系统网络切换；不要同时改动多个隧道开关。Apple Mail 中设为 `Fetch` 的 Gmail 帐户不会因为这些规则变成立即推送。
 
-规则提供者由 `Shadowrocket/Rules/*.list` 自动转换，随仓库每日规则同步一起更新。较大的纯域名与 IP 规则集另编译为 MRS，以减轻 iOS 隧道加载压力；含不同域名匹配类型的规则仍使用 Mihomo `classical` 格式。不支持的 `USER-AGENT` 规则在转换时忽略。
+规则提供者由 `Shadowrocket/Rules/*.list` 自动转换，随仓库每日规则同步一起更新。较大的纯域名与 IP 规则集另编译为 MRS，以减轻 iOS 隧道加载压力；含不同域名匹配类型的规则仍使用 Mihomo `classical` 格式。上游 IP 规则的 `no-resolve` 语义保留在对应的 `RULE-SET` 引用中。不支持的 `USER-AGENT` 和无法编译为 MRS 的 `IP-ASN` 规则在 Clash 转换时忽略。自动更新会校验规则顺序、`no-resolve` 和所有提供者文件。

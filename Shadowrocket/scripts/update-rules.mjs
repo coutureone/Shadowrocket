@@ -36,6 +36,8 @@ const SOURCES = [
   ['List/non_ip/telegram.conf', 'telegram_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/apple_cn.conf', 'apple_cn_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/apple_services.conf', 'apple_services_non_ip.list', 'domain', 'AGPL-3.0'],
+  // Sukka keeps Apple's 17/8 no-resolve rule in the same source file.
+  ['List/non_ip/apple_services.conf', 'apple_services_ip.list', 'ip', 'AGPL-3.0'],
   ['List/non_ip/microsoft_cdn.conf', 'microsoft_cdn_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/microsoft.conf', 'microsoft_non_ip.list', 'domain', 'AGPL-3.0'],
   ['List/non_ip/neteasemusic.conf', 'neteasemusic_non_ip.list', 'domain', 'AGPL-3.0'],

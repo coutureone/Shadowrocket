@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-09-26T17:52:05.292Z
-# Source Content Hash: JYeW7bZp7ijMHdLBclRLNLW1xNh-hE_c4XegKvtgDuI$
+# Source Last Updated: 2026-09-28T22:31:54.970Z
+# Source Content Hash: 3oMvAMMiuVKhHDwrrf-8vnXC_aG6dt-681EOl3CqwMc$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3404
+# Rule Count: 3405
 .fast.com
 fastme.ir
 .nperf.net
@@ -2244,6 +2244,7 @@ uptelecom.brsserver.com.br
 urbanonet.brsserver.com.br
 vanspeedtest.altimatel.com
 velocidad.fiberlink.com.pa
+velocimetro.smartmovel.net
 wipl-speedtest.wipl.online
 yjl-speed.twmbroadband.com
 172673828273027382738738.de

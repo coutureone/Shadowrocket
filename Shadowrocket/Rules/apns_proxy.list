@@ -1,7 +1,9 @@
-# Apple Push Notification service (APNs)
+# Legacy combined Apple Push Notification service (APNs) list.
+# Current APNs test profile uses inline rules so IP matches follow all domains.
 # https://support.apple.com/102266
 DOMAIN-SUFFIX,push.apple.com
 DOMAIN-SUFFIX,push-apple.com.akadns.net
+DOMAIN-SUFFIX,courier-push-apple.com.akadns.net
 IP-CIDR,17.249.0.0/16,no-resolve
 IP-CIDR,17.252.0.0/16,no-resolve
 IP-CIDR,17.57.144.0/22,no-resolve
