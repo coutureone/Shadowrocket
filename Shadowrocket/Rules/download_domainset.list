@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/download.conf
-# Source Last Updated: 2026-09-18T13:04:50.932Z
-# Source Content Hash: At0Bcz7F7sVObXBp-Wr0_ejoK_aw4hY9MNa5FQy15bU$
+# Source Last Updated: 2026-09-30T06:20:11.062Z
+# Source Content Hash: -NesAi5gYz1KmZm9nEzHrd6NUOvwswpIJXANB78WEvA$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 1968
+# Rule Count: 1970
 .gcr.io
 ghp.ci
 .k8s.io
@@ -110,6 +110,7 @@ ctan.math.ca
 d2.myani.org
 deb.sury.org
 debian.a1.bg
+dl.heycue.io
 dl.pikpak.io
 ftp.agdsn.de
 ftp.antik.sk
@@ -625,6 +626,7 @@ dl.vibeisland.app
 dlcdnets.asus.com
 download.cnet.com
 download.gimp.org
+download.manus.im
 download.xbox.com
 .fastly.docker.com
 .files.ghostty.org

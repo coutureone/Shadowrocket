@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/speedtest.conf
-# Source Last Updated: 2026-09-28T22:31:54.970Z
-# Source Content Hash: 3oMvAMMiuVKhHDwrrf-8vnXC_aG6dt-681EOl3CqwMc$
+# Source Last Updated: 2026-09-29T21:23:24.384Z
+# Source Content Hash: iYoI2G5GHI8nVNiUFzA8f7YfDV8peuCflBzXr2fu0JU$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 3405
+# Rule Count: 3406
 .fast.com
 fastme.ir
 .nperf.net
@@ -2978,6 +2978,7 @@ speedtest-ookla-par.as62000.net
 speedtest-perth.optusnet.com.au
 speedtest-phl.dish-wireless.com
 speedtest-phx.dish-wireless.com
+speedtest-pl1.expresshost.cloud
 speedtest-rd-1.zoominternet.net
 speedtest-rs-1.zoominternet.net
 speedtest-sea.dish-wireless.com
