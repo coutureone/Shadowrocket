@@ -24,6 +24,7 @@ https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Modules/sukka_a
 
 - Apple Push Notification Service：`DIRECT`
 - Surge 系统流量：`DIRECT`
+- Common CDN：`PROXY`（与 `global.conf` 使用相同策略）
 - Apple 中国大陆 CDN：`DIRECT`
 - Apple / Microsoft / 网易云 / 局域网 / 中国大陆常见服务：`DIRECT`
 - AI：`AI` 策略组，默认继承 `PROXY`
@@ -53,8 +54,8 @@ hijack-dns = *:53
 
 ```text
 自定义域名 / SYSTEM
-→ DOMAIN-SET
-→ non_ip 精准服务
+→ DOMAIN-SET（Speedtest / Common CDN / Apple CDN）
+→ non_ip 精准服务（Common CDN / Streaming / AI / Telegram）
 → non_ip 国内与直连
 → global
 → IP 精准服务
@@ -64,11 +65,11 @@ hijack-dns = *:53
 
 这是为了保证所有域名类规则都在 IP 类规则之前完成匹配，尽量避免为本应直接代理的域名提前触发本地 DNS 解析。
 
-## 为什么没有 Common CDN / Download 泛化规则
+## Common CDN 与 Download
 
-SukkaW 的 Common CDN 和 Download 规则更适合拥有专门 CDN、低倍率或下载策略组的配置。
+按照 SukkaW 上游 README 的建议，本配置加载 Common CDN 的 `domainset` 与 `non_ip` 两组规则，并与 `global.conf` 一样使用 `PROXY`。这样即使没有独立 CDN 节点，也能覆盖一部分 `global.conf` 未包含的静态资源与对象存储域名，同时继续由上游维护规则内容。
 
-本配置默认只有通用 `PROXY`，继续加载这些泛化规则不仅没有额外策略收益，还可能先于更精准的 Apple / Microsoft / 服务规则命中。因此这里有意不加载它们；如果以后配置独立 CDN / Download 节点，再按 SukkaW 上游顺序添加即可。
+Download 规则暂不加载。它更适合存在独立下载节点、低倍率节点或专门下载策略的配置；以后如果有这类策略，再按 SukkaW 上游顺序加入即可。
 
 ## QUIC / UDP
 
