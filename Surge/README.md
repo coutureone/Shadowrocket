@@ -1,19 +1,89 @@
 # Surge 配置
 
-`Surge-Universal-Split-DNS.conf` 基于 [SukkaW/Surge](https://github.com/SukkaW/Surge) 的官方 Ruleset 顺序生成，适用于 Surge for iOS 和 macOS。它不包含节点；请把自建节点填写到 `[Proxy]`，并在 `[Proxy Group]` 中选择 `PROXY`。
+`Surge-Universal-Split-DNS.conf` 是面向中国大陆常见网络环境整理的 Surge 通用配置，适用于 Surge for iOS 和 macOS。规则直接引用 [SukkaW/Surge](https://github.com/SukkaW/Surge) 上游地址，不复制规则内容，因此上游规则更新后无需手工维护本地规则副本。
 
-建议同时启用 `../Modules/sukka_apns_direct.sgmodule`。主配置已经包含相同的 APNs 规则，模块用于在后续叠加其他模块时再次明确 Apple 推送直连优先级。
+## 导入
 
-导入主配置：
+主配置：
 
 ```text
 https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Surge/Surge-Universal-Split-DNS.conf
 ```
 
-导入模块：
+APNs Direct 模块（可选）：
 
 ```text
 https://raw.githubusercontent.com/coutureone/Shadowrocket/master/Modules/sukka_apns_direct.sgmodule
 ```
 
-国内域名和中国大陆 IPv4/IPv6 地址走 `DIRECT`，AI、Telegram、流媒体和未知流量走当前 `PROXY` 节点。APNs 的 Apple 域名及 `17.0.0.0/8` 走直连；通知是否及时仍取决于 iOS 权限、蜂窝网络、节点线路和系统后台状态。
+主配置已经显式将 Apple Push Notification Service 设为 `DIRECT`，同时使用 Surge 内置 `SYSTEM` 规则集，因此**只使用这份主配置时不需要额外启用 APNs 模块**。该模块保留给其他未包含这些规则的 Surge 配置使用。
+
+## 策略结构
+
+默认行为：
+
+- Apple Push Notification Service：`DIRECT`
+- Surge 系统流量：`DIRECT`
+- Apple 中国大陆 CDN：`DIRECT`
+- Apple / Microsoft / 网易云 / 局域网 / 中国大陆常见服务：`DIRECT`
+- AI：`AI` 策略组，默认继承 `PROXY`
+- Telegram：`Telegram` 策略组，默认继承 `PROXY`
+- Streaming：`Streaming` 策略组，默认继承 `PROXY`
+- 其他海外常用服务：`PROXY`
+- 中国大陆 IPv4 / IPv6：`DIRECT`
+- 未匹配流量：`FINAL,PROXY,dns-failed`
+
+配置不包含节点。请把自建节点或订阅节点加入 `[Proxy]`，并加入 `PROXY` 策略组。若以后希望 AI、Telegram 或 Streaming 使用不同落地节点，可直接把对应节点加入相应策略组，无需修改规则区。
+
+## DNS 与 IPv6
+
+默认使用：
+
+```ini
+dns-server = 223.5.5.5, 119.29.29.29
+encrypted-dns-server = https://dns.alidns.com/dns-query, https://doh.pub/dns-query
+hijack-dns = *:53
+```
+
+配置启用 IPv6，并加载 SukkaW 的 `china_ip_ipv6`。如果实际网络环境不具备稳定 IPv6，可按设备网络环境自行关闭 `ipv6`，并同时删除或注释 `china_ip_ipv6` 规则。
+
+## 规则顺序
+
+本配置严格遵循以下结构：
+
+```text
+自定义域名 / SYSTEM
+→ DOMAIN-SET
+→ non_ip 精准服务
+→ non_ip 国内与直连
+→ global
+→ IP 精准服务
+→ LAN / domestic / china_ip
+→ FINAL
+```
+
+这是为了保证所有域名类规则都在 IP 类规则之前完成匹配，尽量避免为本应直接代理的域名提前触发本地 DNS 解析。
+
+## 为什么没有 Common CDN / Download 泛化规则
+
+SukkaW 的 Common CDN 和 Download 规则更适合拥有专门 CDN、低倍率或下载策略组的配置。
+
+本配置默认只有通用 `PROXY`，继续加载这些泛化规则不仅没有额外策略收益，还可能先于更精准的 Apple / Microsoft / 服务规则命中。因此这里有意不加载它们；如果以后配置独立 CDN / Download 节点，再按 SukkaW 上游顺序添加即可。
+
+## QUIC / UDP
+
+`block-quic = per-policy` 使用 Surge 官方默认行为，由具体策略决定是否阻断 QUIC，不再对所有代理全局强制回退 TCP。
+
+`udp-policy-not-supported-behaviour = REJECT` 用于保证命中的代理策略不支持 UDP Relay 时直接拒绝，而不是意外直连。
+
+## APNs
+
+主配置中以下规则固定为直连：
+
+```ini
+DOMAIN-SUFFIX,push.apple.com,DIRECT
+DOMAIN-SUFFIX,push-apple.com.akadns.net,DIRECT
+RULE-SET,SYSTEM,DIRECT
+```
+
+因此 APNs 行为与 `Modules/sukka_apns_direct.sgmodule` 保持一致，不再存在“主配置代理优先、模块直连”的冲突。
