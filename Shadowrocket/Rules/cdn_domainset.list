@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE. DO NOT EDIT.
 # Converted for Shadowrocket from Sukka Ruleset.
 # Source: https://ruleset.skk.moe/List/domainset/cdn.conf
-# Source Last Updated: 2026-09-30T06:20:11.061Z
-# Source Content Hash: -HiRVvrLrvjL-Y98g-VRCmfysE4FEcos33zgraeQuIs$
+# Source Last Updated: 2026-10-01T14:48:46.522Z
+# Source Content Hash: 7cnqRfB77U9nLupjyVpaVwHRY3fSitc_SQrZwGmeO7I$
 # License: AGPL-3.0
 # Conversion Mode: domainset
 # Unsupported or inapplicable entries removed: none
-# Rule Count: 4678
+# Rule Count: 4680
 0x0.st
 eep.io
 .esm.sh
@@ -125,6 +125,7 @@ cdn.sc.gl
 .erocdn.co
 .eth.sucks
 .f-cdn.com
+.fal.media
 .fbcdn.com
 .fbcdn.net
 .fbsbx.com
@@ -3871,6 +3872,7 @@ assets.clickfunnels.com
 assets.lemonsqueezy.com
 assets.mcp.corespeed.io
 assets.science.nasa.gov
+assets.singaporeair.com
 assets.streamlinehq.com
 assets.xboxservices.com
 assets1.lottiefiles.com
