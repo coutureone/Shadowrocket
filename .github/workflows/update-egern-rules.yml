@@ -1,0 +1,49 @@
+name: Update Egern rules
+
+on:
+  schedule:
+    # Run after upstream sync, Shadowrocket update and Loon update.
+    - cron: '27 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fork-maintenance-master
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.repository == 'coutureone/Shadowrocket'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out fork
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Convert Sukka rules for Egern
+        run: node Egern/scripts/update-rules.mjs
+
+      - name: Validate Egern rule files
+        run: node Egern/scripts/validate-rules.mjs
+
+      - name: Commit updated rules
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Egern/Rules
+
+          if git diff --cached --quiet; then
+            echo "Egern rules are already up to date."
+            exit 0
+          fi
+
+          git commit -m "Update converted Egern rules"
+          git push origin master
