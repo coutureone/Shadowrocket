@@ -1,0 +1,24 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Native Egern ruleset converted from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/telegram.conf
+# Source Last Updated: 2026-08-05T12:33:04.439Z
+# Source Content Hash: N5Chi4AVgtC3LLLZlmGjDDDOXFQFBqND031e-y63yX8$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 14
+domain_suffix_set:
+  - "t.me"
+  - "tx.me"
+  - "tg.dev"
+  - "legra.ph"
+  - "graph.org"
+  - "telega.one"
+  - "telegra.ph"
+  - "telesco.pe"
+  - "telegram.me"
+  - "tdesktop.com"
+  - "telegram.dog"
+  - "telegram.org"
+  - "telegram.space"
+  - "cdn-telegram.org"
