@@ -1,0 +1,20 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Native Egern ruleset converted from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/apple_cn.conf
+# Source Last Updated: 2026-08-05T12:33:04.400Z
+# Source Content Hash: X8kc8kYRsrmysFRnzFpY5Aw2PsmE-xu8_9PdEFl0RFk$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 9
+domain_suffix_set:
+  - "apple.com.cn"
+  - "cn.apple.com"
+  - "icloud.com.cn"
+  - "cn.ls.apple.com"
+  - "cn-ssl.ls.apple.com"
+  - "gspe19-cn-ssl.ls.apple.com"
+domain_set:
+  - "api.smoot.apple.cn"
+  - "gs-loc-cn.apple.com"
+  - "appleintelligencefeedback.care.apple.com"
