@@ -1,0 +1,12 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Native Egern ruleset converted from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/apple_services.conf
+# Source Last Updated: 2026-08-05T12:33:04.405Z
+# Source Content Hash: D1NZxJ0P8otGR-pmWun3-MR6MHrTyyNdXdnytT_bmcg$
+# License: AGPL-3.0
+# Conversion Mode: ip
+# Unsupported or inapplicable entries removed: DOMAIN-SUFFIX=16, PROCESS-NAME=8
+# Rule Count: 1
+no_resolve: true
+ip_cidr_set:
+  - "17.0.0.0/8"
