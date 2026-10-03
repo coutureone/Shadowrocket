@@ -1,0 +1,65 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Native Egern ruleset converted from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/ai.conf
+# Source Last Updated: 2026-10-03T12:41:14.667Z
+# Source Content Hash: dbMtvjywzKjkuOoPTNH2Z96MZyTDgRWaf6luuiNljck$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 52
+domain_suffix_set:
+  - "g.ai"
+  - "x.ai"
+  - "ai.com"
+  - "clau.de"
+  - "dify.ai"
+  - "meta.ai"
+  - "poe.com"
+  - "chat.com"
+  - "grok.com"
+  - "groq.com"
+  - "sora.com"
+  - "claude.ai"
+  - "cursor.sh"
+  - "jasper.ai"
+  - "claude.com"
+  - "openart.ai"
+  - "chatgpt.com"
+  - "clipdrop.co"
+  - "chatgpt.site"
+  - "deepmind.com"
+  - "anthropic.com"
+  - "gemini.google"
+  - "oaistatic.com"
+  - "perplexity.ai"
+  - "bard.google.com"
+  - "deepmind.google"
+  - "gemini.google.com"
+  - "notebooklm.google"
+  - "aistudio.google.com"
+  - "generativeai.google"
+  - "makersuite.google.com"
+  - "notebooklm.google.com"
+  - "geller-pa.googleapis.com"
+  - "cloudcode-pa.googleapis.com"
+  - "generativelanguage.googleapis.com"
+  - "proactivebackend-pa.googleapis.com"
+domain_set:
+  - "ai.google.dev"
+  - "openrouter.ai"
+  - "api.github.com"
+  - "api.jetbrains.ai"
+  - "jules.google.com"
+  - "antigravity.google"
+  - "aida.googleapis.com"
+  - "antigravity-unleash.goog"
+  - "gateway.ai.cloudflare.com"
+  - "aisandbox-pa.googleapis.com"
+  - "robinfrontend-pa.googleapis.com"
+  - "alkalicore-pa.clients6.google.com"
+  - "daily-cloudcode-pa.googleapis.com"
+domain_keyword_set:
+  - "openai"
+  - "alkalimakersuite-pa.clients6.google.com"
+url_regex_set:
+  - "https://www\\.google\\.com/.*continue=https://gemini\\.google\\.com.+"
