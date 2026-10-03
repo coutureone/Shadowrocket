@@ -1,0 +1,22 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Native Egern ruleset converted from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/ip/lan.conf
+# Source Last Updated: 2026-08-05T12:33:04.394Z
+# Source Content Hash: AcyY1IsPOA4BBFgKlSC14TLEln-zD7bAz8N-cXfvVlg$
+# License: AGPL-3.0
+# Conversion Mode: ip
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 11
+ip_cidr_set:
+  - "0.0.0.0/8"
+  - "10.0.0.0/8"
+  - "100.64.0.0/10"
+  - "127.0.0.0/8"
+  - "169.254.0.0/16"
+  - "172.16.0.0/12"
+  - "192.168.0.0/16"
+  - "224.0.0.0/4"
+ip_cidr6_set:
+  - "::1/128"
+  - "fc00::/7"
+  - "fe80::/10"
