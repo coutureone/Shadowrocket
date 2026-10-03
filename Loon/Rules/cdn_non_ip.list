@@ -1,0 +1,34 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Converted for Loon from Sukka Ruleset using only Loon-documented rule syntax.
+# Source: https://ruleset.skk.moe/List/non_ip/cdn.conf
+# Source Last Updated: 2026-08-19T01:29:53.827Z
+# Source Content Hash: XSnANR2ej23eV7GFbIL1wqIzrZ_522OY7Ubzre7S8X4$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: DOMAIN-WILDCARD=59
+# Rule Count: 24
+
+DOMAIN,cdn-msp.jmcomic.me
+DOMAIN,cdn-msp.18comic.org
+DOMAIN,cdn-msp.18comic.vip
+DOMAIN,cdn-msp.jmcomic-zzz.one
+DOMAIN-KEYWORD,-files.gitbook.io
+DOMAIN-KEYWORD,vod-adaptive.akamaized.net
+DOMAIN-KEYWORD,web-assets.zendesk
+DOMAIN-KEYWORD,-res.cloudinary.com
+DOMAIN-KEYWORD,dsn.algolia.net
+DOMAIN-KEYWORD,-thumbs.pornhost.com
+DOMAIN-KEYWORD,-cdn.eporner.com
+DOMAIN-KEYWORD,cdn.adultempire.com
+DOMAIN-KEYWORD,-assets.dmm.co.jp
+DOMAIN-KEYWORD,static.trustpilot.com
+DOMAIN-KEYWORD,scripts.trustpilot.com
+DOMAIN-KEYWORD,images.trustpilot.com
+DOMAIN-KEYWORD,cdn.trustpilot.net
+DOMAIN-KEYWORD,assets.trustpilot.net
+DOMAIN-KEYWORD,images.trustpilot.net
+DOMAIN-KEYWORD,-assets.worldsex.com
+DOMAIN-KEYWORD,-thumbs.worldsex.com
+DOMAIN-KEYWORD,99avcdn
+DOMAIN-KEYWORD,-images.disco-api.com
+DOMAIN-KEYWORD,static.grammarly.com
