@@ -137,4 +137,4 @@ rules:
 
 ## 自动更新
 
-`Egern/scripts/update-rules.mjs` 会从 Sukka Ruleset 直接生成 Egern 原生 YAML；`validate-rules.mjs` 负责校验输出结构。自动更新工作流在上游、Shadowrocket 和 Loon 更新之后执行。
+`Egern/scripts/update-rules.mjs` 会从 Sukka Ruleset 直接生成 Egern 原生 YAML；如果同一上游 IP 规则集同时存在普通解析与 `no-resolve` 条目，会自动拆成两个文件（例如 `ai_ip.yaml` 与 `ai_ip_no_resolve.yaml`），避免改变原始 DNS 语义。`validate-rules.mjs` 负责校验输出结构。自动更新工作流在上游、Shadowrocket 和 Loon 更新之后执行。
