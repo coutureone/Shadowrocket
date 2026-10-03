@@ -1,0 +1,11 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Converted for Loon from Sukka Ruleset using only Loon-documented rule syntax.
+# Source: https://ruleset.skk.moe/List/non_ip/download.conf
+# Source Last Updated: 2026-08-05T12:33:04.408Z
+# Source Content Hash: Yl6ZX6RG9FLOB_BLmHsFfEIamzPZ6LaflomfWznqQkY$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: DOMAIN-WILDCARD=9
+# Rule Count: 1
+
+URL-REGEX,^http://(.+)\.gvt\d\.com/edgedl
