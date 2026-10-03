@@ -1,0 +1,15 @@
+# AUTO-GENERATED FILE. DO NOT EDIT.
+# Native Egern ruleset converted from Sukka Ruleset.
+# Source: https://ruleset.skk.moe/List/non_ip/neteasemusic.conf
+# Source Last Updated: 2026-08-05T12:33:04.421Z
+# Source Content Hash: ENn2cYM3OsxN_KwEr498kSw6AxuL-ibfKIShjBVdSUo$
+# License: AGPL-3.0
+# Conversion Mode: domain
+# Unsupported or inapplicable entries removed: none
+# Rule Count: 4
+domain_suffix_set:
+  - "music.126.net"
+  - "music.163.com"
+user_agent_set:
+  - "%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90"
+  - "NeteaseMusic*"
